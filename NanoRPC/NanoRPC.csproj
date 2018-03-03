@@ -4,4 +4,20 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Refit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Wallet\" />
+    <Folder Include="Models\UncheckedBlocks\" />
+    <Folder Include="Models\Sending\" />
+    <Folder Include="Models\Representatives\" />
+    <Folder Include="Models\Receiving\" />
+    <Folder Include="Models\Work\" />
+    <Folder Include="Models\Pending\" />
+    <Folder Include="Models\PeersConversations\" />
+    <Folder Include="Models\Node\" />
+  </ItemGroup>
+
 </Project>
