@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountBalanceResponse> GetBalance(AccountBalanceRequest req);
+    Task<AccountBalanceResponse> AccountBalance(AccountBalanceRequest req);
 
     /// <summary>
     /// Get number of blocks for a specific account
@@ -20,7 +20,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountBlockCountResponse> GetBlockCount(AccountBlockCountRequest req);
+    Task<AccountBlockCountResponse> AccountBlockCount(AccountBlockCountRequest req);
 
     /// <summary>
     /// enable_control required
@@ -29,7 +29,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountCreateResponse> CreateAccount(AccountCreateRequest req);
+    Task<AccountCreateResponse> AccountCreate(AccountCreateRequest req);
 
     /// <summary>
     /// Get account number for the public key
@@ -37,7 +37,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountGetResponse> GetUser(AccountGetRequest req);
+    Task<AccountGetResponse> AccountGet(AccountGetRequest req);
 
     /// <summary>
     /// Reports send/receive information for a account
@@ -45,7 +45,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountHistoryResponse> GetAccountHistory(AccountHistoryRequest req);
+    Task<AccountHistoryResponse> AccountHistory(AccountHistoryRequest req);
 
     /// <summary>
     /// Returns frontier, open block, change representative block, balance, last modified timestamp from local database & block count for account
@@ -53,7 +53,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountInfoResponse> GetAccountInfo(AccountInfoRequest req);
+    Task<AccountInfoResponse> AccountInfo(AccountInfoRequest req);
 
     /// <summary>
     /// Lists all the accounts inside wallet
@@ -61,7 +61,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountListResponse> GetAccounts(AccountListRequest req);
+    Task<AccountListResponse> AccountList(AccountListRequest req);
 
     /// <summary>
     /// Moves accounts from source to wallet
@@ -70,7 +70,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountMoveResponse> MoveAccount(AccountMoveRequest req);
+    Task<AccountMoveResponse> AccountMove(AccountMoveRequest req);
 
     /// <summary>
     /// Get the public key for account
@@ -78,7 +78,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountKeyResponse> GetAccountKey(AccountKeyRequest req);
+    Task<AccountKeyResponse> AccountKey(AccountKeyRequest req);
 
     /// <summary>
     /// Remove account from wallet
@@ -87,7 +87,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountRemoveResponse> RemoveAccount(AccountRemoveRequest req);
+    Task<AccountRemoveResponse> AccountRemove(AccountRemoveRequest req);
 
     /// <summary>
     /// Returns the representative for account
@@ -95,7 +95,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountRepresentativeResponse> GetAccountRepresentative(AccountRepresentativeRequest req);
+    Task<AccountRepresentativeResponse> AccountRepresentative(AccountRepresentativeRequest req);
 
     /// <summary>
     /// Sets the representative for account in wallet
@@ -104,7 +104,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountRepresentativeSetResponse> SetAccountRepresentative(AccountRepresentativeSetRequest req);
+    Task<AccountRepresentativeSetResponse> AccountRepresentativeSet(AccountRepresentativeSetRequest req);
 
     /// <summary>
     /// Returns the voting weight for account
@@ -112,7 +112,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountWeightResponse> GetAccountWeight(AccountWeightRequest req);
+    Task<AccountWeightResponse> AccountWeight(AccountWeightRequest req);
 
     /// <summary>
     /// Returns how many RAW is owned and how many have not yet been received by accounts list
@@ -120,7 +120,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountsBalancesResponse> GetAccountsBalances(AccountsBalancesRequest req);
+    Task<AccountsBalancesResponse> AccountsBalances(AccountsBalancesRequest req);
 
     /// <summary>
     /// Creates new accounts, insert next deterministic keys in wallet up to count
@@ -129,7 +129,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountsCreateResponse> CreateAccounts(AccountsCreateRequest req);
+    Task<AccountsCreateResponse> AccountsCreate(AccountsCreateRequest req);
 
     /// <summary>
     /// Returns a list of pairs of account and block hash representing the head block for accounts list
@@ -137,7 +137,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountsFrontiersResponse> GetAccountsFrontiers(AccountsFrontiersRequest req);
+    Task<AccountsFrontiersResponse> AccountsFrontiers(AccountsFrontiersRequest req);
 
     /// <summary>
     /// Returns a list of block hashes which have not yet been received by these accounts
@@ -145,7 +145,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AccountsPendingResponse> GetAccountsPending(AccountsPendingRequest req);
+    Task<AccountsPendingResponse> AccountsPending(AccountsPendingRequest req);
 
 
   }

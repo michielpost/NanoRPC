@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlockResponse> GetBlock(BlockRequest req);
+    Task<BlockResponse> Block(BlockRequest req);
 
     /// <summary>
     /// Retrieves a json representations of blocks
@@ -20,7 +20,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlocksResponse> GetBlocks(BlocksRequest req);
+    Task<BlocksResponse> Blocks(BlocksRequest req);
 
     /// <summary>
     /// Retrieves a json representations of blocks with transaction amount & block account
@@ -28,7 +28,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlocksInfoResponse> GetBlocksInfo(BlocksInfoRequest req);
+    Task<BlocksInfoResponse> BlocksInfo(BlocksInfoRequest req);
 
     /// <summary>
     /// Returns the account containing block
@@ -36,7 +36,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlockAccountResponse> GetBlockAccount(BlockAccountRequest req);
+    Task<BlockAccountResponse> BlockAccount(BlockAccountRequest req);
 
     /// <summary>
     /// Reports the number of blocks in the ledger and unchecked synchronizing blocks
@@ -44,7 +44,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlockCountResponse> GetBlockCount(BlockCountRequest req);
+    Task<BlockCountResponse> BlockCount(BlockCountRequest req);
 
     /// <summary>
     /// Reports the number of blocks in the ledger by type (send, receive, open, change)
@@ -52,7 +52,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BlockCountTypeResponse> GetBlockCountByType(BlockCountTypeRequest req);
+    Task<BlockCountTypeResponse> BlockCountType(BlockCountTypeRequest req);
 
     /// <summary>
     /// Returns a list of block hashes in the account chain starting at block up to count
@@ -60,7 +60,15 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ChainResponse> GetChain(ChainRequest req);
+    Task<ChainResponse> Chain(ChainRequest req);
+
+    /// <summary>
+    /// Publish block to the network
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<ProcessResponse> Process(ProcessRequest req);
 
   }
 }

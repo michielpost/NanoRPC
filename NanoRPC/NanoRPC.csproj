@@ -13,7 +13,6 @@
     <Folder Include="Models\UncheckedBlocks\" />
     <Folder Include="Models\Sending\" />
     <Folder Include="Models\Representatives\" />
-    <Folder Include="Models\Receiving\" />
     <Folder Include="Models\Work\" />
     <Folder Include="Models\Pending\" />
     <Folder Include="Models\PeersConversations\" />

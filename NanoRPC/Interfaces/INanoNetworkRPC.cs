@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AvailableSupplyResponse> GetAvailableSupply(AvailableSupplyRequest req);
+    Task<AvailableSupplyResponse> AvailableSupply(AvailableSupplyRequest req);
 
     [Post("")]
     Task KeepAlive(KeepAliveRequest req);

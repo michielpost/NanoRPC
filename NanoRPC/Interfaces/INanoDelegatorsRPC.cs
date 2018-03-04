@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<DelegatorsResponse> GetDelegators(DelegatorsRequest req);
+    Task<DelegatorsResponse> Delegators(DelegatorsRequest req);
 
     /// <summary>
     /// Get number of delegators for a specific representative account
@@ -20,6 +20,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<DelegatorsCountResponse> GetDelegatorsCount(DelegatorsCountRequest req);
+    Task<DelegatorsCountResponse> DelegatorsCount(DelegatorsCountRequest req);
   }
 }

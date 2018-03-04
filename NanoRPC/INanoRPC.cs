@@ -16,7 +16,8 @@ namespace NanoRPC
     INanoKeysRPC,
     INanoLedgerRPC,
     INanoNetworkRPC,
-    INanoPaymentsRPC
+    INanoPaymentsRPC,
+    INanoReceivingRPC
   {
 
     //TODO NEXT: Payment Init
