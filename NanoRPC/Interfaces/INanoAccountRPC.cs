@@ -147,6 +147,14 @@ namespace NanoRPC
     [Post("")]
     Task<AccountsPendingResponse> AccountsPending(AccountsPendingRequest req);
 
+    /// <summary>
+    /// Check whether account is a valid account number
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<ValidateAccountNumberResponse> ValidateAccountNumber(ValidateAccountNumberRequest req);
+
 
   }
 }

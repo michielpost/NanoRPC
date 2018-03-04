@@ -16,11 +16,16 @@ namespace NanoRPC
     INanoKeysRPC,
     INanoLedgerRPC,
     INanoNetworkRPC,
+    INanoNodeRPC,
     INanoPaymentsRPC,
-    INanoReceivingRPC
+    INanoPeersRPC,
+    INanoPendingRPC,
+    INanoReceivingRPC,
+    INanoRepresentativesRPC,
+    INanoSendRPC
   {
 
-    //TODO NEXT: Payment Init
+    //TODO NEXT: Unchecked blocks
 
     //TODO, wait for universal blocks: Offline signing(create block)
 

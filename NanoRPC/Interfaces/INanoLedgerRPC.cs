@@ -22,5 +22,13 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<LedgerResponse> Ledger(LedgerRequest req);
+
+    /// <summary>
+    /// Returns a list of block hashes in the account chain ending at block up to count
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<SuccessorsResponse> Successors(SuccessorsRequest req);
   }
 }
