@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Wallet\" />
-    <Folder Include="Models\UncheckedBlocks\" />
     <Folder Include="Models\Work\" />
   </ItemGroup>
 

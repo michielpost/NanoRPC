@@ -22,10 +22,11 @@ namespace NanoRPC
     INanoPendingRPC,
     INanoReceivingRPC,
     INanoRepresentativesRPC,
-    INanoSendRPC
+    INanoSendRPC,
+    INanoUncheckedBlocksRPC
   {
 
-    //TODO NEXT: Unchecked blocks
+    //TODO NEXT: Wallet add key
 
     //TODO, wait for universal blocks: Offline signing(create block)
 
