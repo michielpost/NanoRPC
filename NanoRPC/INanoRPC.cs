@@ -24,7 +24,8 @@ namespace NanoRPC
     INanoRepresentativesRPC,
     INanoSendRPC,
     INanoUncheckedBlocksRPC,
-    INanoWalletRPC
+    INanoWalletRPC,
+    INanoWorkRPC
   {
 
     //TODO NEXT: Work cancel
