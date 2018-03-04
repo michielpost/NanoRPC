@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Wallet\" />
     <Folder Include="Models\Work\" />
   </ItemGroup>
 

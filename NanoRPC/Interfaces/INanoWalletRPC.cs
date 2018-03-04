@@ -1,0 +1,146 @@
+using Refit;
+using System;
+using System.Threading.Tasks;
+
+namespace NanoRPC
+{
+  public interface INanoWalletRPC
+  {
+    /// <summary>
+    /// Add an adhoc private key key to wallet
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletAddResponse> WalletAdd(WalletAddRequest req);
+
+    /// <summary>
+    /// Returns the sum of all accounts balances in wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletBalanceTotalResponse> WalletBalanceTotal(WalletBalanceTotalRequest req);
+
+    /// <summary>
+    /// Returns how many rai is owned and how many have not yet been received by all accounts in wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletBalancesResponse> WalletBalances(WalletBalancesRequest req);
+
+    /// <summary>
+    /// Changes seed for wallet to seed
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletChangeSeedResponse> WalletChangeSeed(WalletChangeSeedRequest req);
+
+    /// <summary>
+    /// Check whether wallet contains account
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletContainsResponse> WalletContains(WalletContainsRequest req);
+
+    /// <summary>
+    /// Creates a new random wallet id
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletCreateResponse> WalletCreate(WalletCreateRequest req);
+
+    /// <summary>
+    /// Destroys wallet and all contained accounts
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task WalletDestroy(WalletDestroyRequest req);
+
+    /// <summary>
+    /// Return a json representation of wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletExportResponse> WalletExport(WalletExportRequest req);
+
+    /// <summary>
+    /// Returns a list of pairs of account and block hash representing the head block starting for accounts from wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletFrontiersResponse> WalletFrontiers(WalletFrontiersRequest req);
+
+    /// <summary>
+    /// Returns a list of block hashes which have not yet been received by accounts in this wallet
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletPendingResponse> WalletPending(WalletPendingRequest req);
+
+    /// <summary>
+    /// Rebroadcast blocks for accounts from wallet starting at frontier down to count to the network
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletRepublishResponse> WalletRepublish(WalletRepublishRequest req);
+
+    /// <summary>
+    /// Returns a list of pairs of account and work from wallet
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletWorkGetResponse> WalletWorkGet(WalletWorkGetRequest req);
+
+    /// <summary>
+    /// Changes the password for wallet to password
+    /// enable_control required
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<PasswordChangeResponse> PasswordChange(PasswordChangeRequest req);
+
+    /// <summary>
+    /// Enters the password in to wallet (unlock wallet)
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<PasswordEnterResponse> PasswordEnter(PasswordEnterRequest req);
+
+    /// <summary>
+    /// Checks whether the password entered for wallet is valid
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<PasswordValidResponse> PasswordValid(PasswordValidRequest req);
+
+    /// <summary>
+    /// Checks whether wallet is locked
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletLockedResponse> WalletLocked(WalletLockedRequest req);
+
+
+  }
+}
