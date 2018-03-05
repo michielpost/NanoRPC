@@ -15,6 +15,9 @@ namespace NanoRPC
 
   public class ValidateAccountNumberResponse
   {
+    /// <summary>
+    /// 1 if valid, 0 if invalid
+    /// </summary>
     public string Valid { get; set; }
 
   }
