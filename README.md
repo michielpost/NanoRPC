@@ -1,4 +1,3 @@
-
 [![Build status](https://ci.appveyor.com/api/projects/status/k209wg02y7adyp1j/branch/master?svg=true)](https://ci.appveyor.com/project/michielpost/nanorpc/branch/master)
 
 # NanoRPC
@@ -33,4 +32,4 @@ NanoRPC is licensed under [MIT](http://www.opensource.org/licenses/mit-license.p
 Contributions are welcome. Fork this repository and send a pull request if you have something useful to add.
 
 ### Open Source Project Credits
-This library use RestEase https://github.com/canton7/RestEase
+This library uses RestEase https://github.com/canton7/RestEase
