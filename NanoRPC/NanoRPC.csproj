@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <Authors>Michiel Post</Authors>
+    <Company />
+    <Description>Library to communicatie with NANO Currency node using RPC</Description>
+    <Copyright>Michiel Post</Copyright>
+    <PackageProjectUrl>https://github.com/michielpost/NanoRPC</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/michielpost/NanoRPC</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>nanocurrency rpc cryptocurrency</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
