@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ReceiveResponse> Receive(ReceiveRequest req);
+    Task<ReceiveResponse> Receive([Body]ReceiveRequest req);
 
     /// <summary>
     /// Returns receive minimum for node
@@ -22,7 +22,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ReceiveMinimumResponse> ReceiveMinimum(ReceiveMinimumRequest req);
+    Task<ReceiveMinimumResponse> ReceiveMinimum([Body]ReceiveMinimumRequest req);
 
     /// <summary>
     /// Set amount as new receive minimum for node until restart
@@ -31,7 +31,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ReceiveMinimumSetResponse> ReceiveMinimumSet(ReceiveMinimumSetRequest req);
+    Task<ReceiveMinimumSetResponse> ReceiveMinimumSet([Body]ReceiveMinimumSetRequest req);
 
   }
 }

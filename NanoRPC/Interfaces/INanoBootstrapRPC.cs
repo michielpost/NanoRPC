@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BootstrapResponse> Bootstrap(BootstrapRequest req);
+    Task<BootstrapResponse> Bootstrap([Body]BootstrapRequest req);
 
     /// <summary>
     ///Initialize multi-connection bootstrap to random peers
@@ -20,6 +20,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<BootstrapResponse> BootstrapAny(BootstrapAnyRequest req);
+    Task<BootstrapResponse> BootstrapAny([Body]BootstrapAnyRequest req);
   }
 }

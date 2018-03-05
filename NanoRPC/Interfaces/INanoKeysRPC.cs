@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<DeterministicKeyResponse> DeterministicKey(DeterministicKeyRequest req);
+    Task<DeterministicKeyResponse> DeterministicKey([Body]DeterministicKeyRequest req);
 
     /// <summary>
     /// Generates an adhoc random keypair
@@ -20,7 +20,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<KeyCreateResponse> KeyCreate(KeyCreateRequest req);
+    Task<KeyCreateResponse> KeyCreate([Body]KeyCreateRequest req);
 
     /// <summary>
     /// Derive public key and account number from private key
@@ -28,6 +28,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<KeyExpandResponse> KeyExpand(KeyExpandRequest req);
+    Task<KeyExpandResponse> KeyExpand([Body]KeyExpandRequest req);
   }
 }

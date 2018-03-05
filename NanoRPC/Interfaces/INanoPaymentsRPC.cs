@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PaymentBeginResponse> PaymentBegin(PaymentBeginRequest req);
+    Task<PaymentBeginResponse> PaymentBegin([Body]PaymentBeginRequest req);
 
     /// <summary>
     /// Marks all accounts in wallet as available for being used as a payment session.
@@ -20,7 +20,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PaymentInitResponse> PaymentInit(PaymentInitRequest req);
+    Task<PaymentInitResponse> PaymentInit([Body]PaymentInitRequest req);
 
     /// <summary>
     /// End a payment session. Marks the account as available for use in a payment session. 
@@ -28,7 +28,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task PaymentEnd(PaymentEndRequest req);
+    Task PaymentEnd([Body]PaymentEndRequest req);
 
     /// <summary>
     /// Wait for payment of 'amount' to arrive in 'account' or until 'timeout' milliseconds have elapsed.
@@ -36,7 +36,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PaymentWaitResponse> PaymentWait(PaymentWaitRequest req);
+    Task<PaymentWaitResponse> PaymentWait([Body]PaymentWaitRequest req);
 
   }
 }

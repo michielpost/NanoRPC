@@ -1,5 +1,4 @@
 using NanoRPC.Models;
-using Refit;
 using System;
 using System.Collections.Generic;
 using System.Text;

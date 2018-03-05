@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,6 +13,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<SendResponse> Send(SendRequest req);
+    Task<SendResponse> Send([Body]SendRequest req);
   }
 }

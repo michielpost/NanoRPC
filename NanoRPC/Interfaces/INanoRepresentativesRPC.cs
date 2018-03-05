@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<RepresentativesResponse> Representatives(RepresentativesRequest req);
+    Task<RepresentativesResponse> Representatives([Body]RepresentativesRequest req);
 
     /// <summary>
     /// Returns the default representative for wallet
@@ -20,7 +20,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletRepresentativeResponse> WalletRepresentative(WalletRepresentativeRequest req);
+    Task<WalletRepresentativeResponse> WalletRepresentative([Body]WalletRepresentativeRequest req);
 
     /// <summary>
     /// Sets the default representative for wallet
@@ -29,7 +29,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletRepresentativeSetResponse> WalletRepresentativeSet(WalletRepresentativeSetRequest req);
+    Task<WalletRepresentativeSetResponse> WalletRepresentativeSet([Body]WalletRepresentativeSetRequest req);
 
   }
 }

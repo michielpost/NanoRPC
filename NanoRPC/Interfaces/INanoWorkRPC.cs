@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -14,7 +14,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task WorkCancel(WorkCancelRequest req);
+    Task WorkCancel([Body]WorkCancelRequest req);
 
     /// <summary>
     /// Generates work for block
@@ -23,7 +23,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkGenerateResponse> WorkGenerate(WorkGenerateRequest req);
+    Task<WorkGenerateResponse> WorkGenerate([Body]WorkGenerateRequest req);
 
     /// <summary>
     /// Retrieves work for account in wallet
@@ -32,7 +32,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkGetResponse> WorkGet(WorkGetRequest req);
+    Task<WorkGetResponse> WorkGet([Body]WorkGetRequest req);
 
     /// <summary>
     /// Set work for account in wallet
@@ -41,6 +41,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkSetResponse> WorkSet(WorkSetRequest req);
+    Task<WorkSetResponse> WorkSet([Body]WorkSetRequest req);
   }
 }

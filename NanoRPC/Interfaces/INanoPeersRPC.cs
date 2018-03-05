@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PeersResponse> Peers(PeersRequest req);
+    Task<PeersResponse> Peers([Body]PeersRequest req);
 
     /// <summary>
     /// Add specific IP address and port as work peer for node until restart
@@ -21,7 +21,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkPeerAddResponse> WorkPeerAdd(WorkPeerAddRequest req);
+    Task<WorkPeerAddResponse> WorkPeerAdd([Body]WorkPeerAddRequest req);
 
     /// <summary>
     /// Retrieve work peers
@@ -30,7 +30,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkPeersResponse> WorkPeers(WorkPeersRequest req);
+    Task<WorkPeersResponse> WorkPeers([Body]WorkPeersRequest req);
 
     /// <summary>
     /// Clear work peers node list until restart
@@ -39,7 +39,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkPeersClearResponse> WorkPeersClear(WorkPeersClearRequest req);
+    Task<WorkPeersClearResponse> WorkPeersClear([Body]WorkPeersClearRequest req);
 
     /// <summary>
     /// Check whether work is valid for block
@@ -47,7 +47,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WorkValidateResponse> WorkValidate(WorkValidateRequest req);
+    Task<WorkValidateResponse> WorkValidate([Body]WorkValidateRequest req);
 
   }
 }

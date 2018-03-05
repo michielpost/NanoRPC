@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<AvailableSupplyResponse> AvailableSupply(AvailableSupplyRequest req);
+    Task<AvailableSupplyResponse> AvailableSupply([Body]AvailableSupplyRequest req);
 
     /// <summary>
     /// Tells the node to send a keepalive packet to address:port
@@ -21,13 +21,13 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task KeepAlive(KeepAliveRequest req);
+    Task KeepAlive([Body]KeepAliveRequest req);
 
     /// <summary>
     /// Rebroadcast blocks starting at hash to the network
     /// </summary>
     [Post("")]
-    Task<RepublishResponse> Republish(RepublishRequest req);
+    Task<RepublishResponse> Republish([Body]RepublishRequest req);
 
   }
 }

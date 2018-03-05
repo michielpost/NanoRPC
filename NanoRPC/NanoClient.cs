@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Refit;
+using RestEase;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,14 +11,14 @@ namespace NanoRPC
   {
     public static INanoRPC GetClient(string baseUrl)
     {
-      var nanoApi = RestService.For<INanoRPC>(baseUrl,
-        new RefitSettings
+      var nanoApi = new RestClient(baseUrl)
+      {
+         
+        JsonSerializerSettings = new JsonSerializerSettings()
         {
-          JsonSerializerSettings = new JsonSerializerSettings
-          {
-            ContractResolver = new CamelCasePropertyNamesContractResolver()
-          }
-        });
+          ContractResolver = new CamelCasePropertyNamesContractResolver()
+        }
+      }.For<INanoRPC>();
       return nanoApi;
     }
   }

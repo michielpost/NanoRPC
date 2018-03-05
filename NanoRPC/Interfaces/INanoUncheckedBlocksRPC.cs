@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<UncheckedResponse> Unchecked(UncheckedRequest req);
+    Task<UncheckedResponse> Unchecked([Body]UncheckedRequest req);
 
     /// <summary>
     /// Clear unchecked synchronizing blocks
@@ -22,7 +22,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<UncheckedClearResponse> UncheckedClear(UncheckedClearRequest req);
+    Task<UncheckedClearResponse> UncheckedClear([Body]UncheckedClearRequest req);
 
     /// <summary>
     /// Retrieves a json representation of unchecked synchronizing block by hash
@@ -30,7 +30,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<UncheckedGetResponse> UncheckedGet(UncheckedGetRequest req);
+    Task<UncheckedGetResponse> UncheckedGet([Body]UncheckedGetRequest req);
 
     /// <summary>
     /// Retrieves unchecked database keys, blocks hashes & a json representations of unchecked pending blocks starting from key up to count
@@ -38,6 +38,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<UncheckedKeysResponse> UncheckedKeys(UncheckedKeysRequest req);
+    Task<UncheckedKeysResponse> UncheckedKeys([Body]UncheckedKeysRequest req);
   }
 }

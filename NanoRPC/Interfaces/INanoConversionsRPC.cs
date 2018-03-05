@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> MraiFromRaw(MraiFromRawRequest req);
+    Task<ConversionResponse> MraiFromRaw([Body]MraiFromRawRequest req);
 
     /// <summary>
     /// Divide a raw amount down by the krai ratio.
@@ -21,7 +21,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> KraiFromRaw(KraiFromRawRequest req);
+    Task<ConversionResponse> KraiFromRaw([Body]KraiFromRawRequest req);
 
     /// <summary>
     /// Divide a raw amount down by the rai ratio.
@@ -29,7 +29,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> RaiFromRaw(RaiFromRawRequest req);
+    Task<ConversionResponse> RaiFromRaw([Body]RaiFromRawRequest req);
 
     /// <summary>
     /// Multiply an Mrai amount by the Mrai ratio.
@@ -37,7 +37,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> MraiToRaw(MraiToRawRequest req);
+    Task<ConversionResponse> MraiToRaw([Body]MraiToRawRequest req);
 
     /// <summary>
     /// Multiply an krai amount by the krai ratio.
@@ -45,7 +45,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> KraiToRaw(KraiToRawRequest req);
+    Task<ConversionResponse> KraiToRaw([Body]KraiToRawRequest req);
 
     /// <summary>
     /// Multiply an rai amount by the rai ratio.
@@ -53,6 +53,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<ConversionResponse> RaiToRaw(RaiToRawRequest req);
+    Task<ConversionResponse> RaiToRaw([Body]RaiToRawRequest req);
   }
 }

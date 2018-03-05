@@ -1,3 +1,4 @@
+using RestEase;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +32,5 @@ namespace NanoRPC
     //TODO NEXT: Work cancel
 
     //TODO, wait for universal blocks: Offline signing(create block)
-
   }
 }

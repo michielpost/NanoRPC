@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletAddResponse> WalletAdd(WalletAddRequest req);
+    Task<WalletAddResponse> WalletAdd([Body]WalletAddRequest req);
 
     /// <summary>
     /// Returns the sum of all accounts balances in wallet
@@ -21,7 +21,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletBalanceTotalResponse> WalletBalanceTotal(WalletBalanceTotalRequest req);
+    Task<WalletBalanceTotalResponse> WalletBalanceTotal([Body]WalletBalanceTotalRequest req);
 
     /// <summary>
     /// Returns how many rai is owned and how many have not yet been received by all accounts in wallet
@@ -29,7 +29,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletBalancesResponse> WalletBalances(WalletBalancesRequest req);
+    Task<WalletBalancesResponse> WalletBalances([Body]WalletBalancesRequest req);
 
     /// <summary>
     /// Changes seed for wallet to seed
@@ -37,7 +37,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletChangeSeedResponse> WalletChangeSeed(WalletChangeSeedRequest req);
+    Task<WalletChangeSeedResponse> WalletChangeSeed([Body]WalletChangeSeedRequest req);
 
     /// <summary>
     /// Check whether wallet contains account
@@ -45,7 +45,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletContainsResponse> WalletContains(WalletContainsRequest req);
+    Task<WalletContainsResponse> WalletContains([Body]WalletContainsRequest req);
 
     /// <summary>
     /// Creates a new random wallet id
@@ -54,7 +54,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletCreateResponse> WalletCreate(WalletCreateRequest req);
+    Task<WalletCreateResponse> WalletCreate([Body]WalletCreateRequest req);
 
     /// <summary>
     /// Destroys wallet and all contained accounts
@@ -63,7 +63,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task WalletDestroy(WalletDestroyRequest req);
+    Task WalletDestroy([Body]WalletDestroyRequest req);
 
     /// <summary>
     /// Return a json representation of wallet
@@ -71,7 +71,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletExportResponse> WalletExport(WalletExportRequest req);
+    Task<WalletExportResponse> WalletExport([Body]WalletExportRequest req);
 
     /// <summary>
     /// Returns a list of pairs of account and block hash representing the head block starting for accounts from wallet
@@ -79,7 +79,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletFrontiersResponse> WalletFrontiers(WalletFrontiersRequest req);
+    Task<WalletFrontiersResponse> WalletFrontiers([Body]WalletFrontiersRequest req);
 
     /// <summary>
     /// Returns a list of block hashes which have not yet been received by accounts in this wallet
@@ -88,7 +88,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletPendingResponse> WalletPending(WalletPendingRequest req);
+    Task<WalletPendingResponse> WalletPending([Body]WalletPendingRequest req);
 
     /// <summary>
     /// Rebroadcast blocks for accounts from wallet starting at frontier down to count to the network
@@ -97,7 +97,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletRepublishResponse> WalletRepublish(WalletRepublishRequest req);
+    Task<WalletRepublishResponse> WalletRepublish([Body]WalletRepublishRequest req);
 
     /// <summary>
     /// Returns a list of pairs of account and work from wallet
@@ -106,7 +106,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletWorkGetResponse> WalletWorkGet(WalletWorkGetRequest req);
+    Task<WalletWorkGetResponse> WalletWorkGet([Body]WalletWorkGetRequest req);
 
     /// <summary>
     /// Changes the password for wallet to password
@@ -115,7 +115,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PasswordChangeResponse> PasswordChange(PasswordChangeRequest req);
+    Task<PasswordChangeResponse> PasswordChange([Body]PasswordChangeRequest req);
 
     /// <summary>
     /// Enters the password in to wallet (unlock wallet)
@@ -123,7 +123,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PasswordEnterResponse> PasswordEnter(PasswordEnterRequest req);
+    Task<PasswordEnterResponse> PasswordEnter([Body]PasswordEnterRequest req);
 
     /// <summary>
     /// Checks whether the password entered for wallet is valid
@@ -131,7 +131,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PasswordValidResponse> PasswordValid(PasswordValidRequest req);
+    Task<PasswordValidResponse> PasswordValid([Body]PasswordValidRequest req);
 
     /// <summary>
     /// Checks whether wallet is locked
@@ -139,7 +139,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletLockedResponse> WalletLocked(WalletLockedRequest req);
+    Task<WalletLockedResponse> WalletLocked([Body]WalletLockedRequest req);
 
 
   }

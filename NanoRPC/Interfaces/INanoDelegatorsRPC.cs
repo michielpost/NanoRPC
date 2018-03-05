@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<DelegatorsResponse> Delegators(DelegatorsRequest req);
+    Task<DelegatorsResponse> Delegators([Body]DelegatorsRequest req);
 
     /// <summary>
     /// Get number of delegators for a specific representative account
@@ -20,6 +20,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<DelegatorsCountResponse> DelegatorsCount(DelegatorsCountRequest req);
+    Task<DelegatorsCountResponse> DelegatorsCount([Body]DelegatorsCountRequest req);
   }
 }

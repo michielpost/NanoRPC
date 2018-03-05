@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<StopResponse> Stop(StopRequest req);
+    Task<StopResponse> Stop([Body]StopRequest req);
 
     /// <summary>
     /// Returns version information for RPC, Store & Node (Major & Minor version)
@@ -21,7 +21,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<VersionResponse> Version(VersionRequest req);
+    Task<VersionResponse> Version([Body]VersionRequest req);
 
   }
 }

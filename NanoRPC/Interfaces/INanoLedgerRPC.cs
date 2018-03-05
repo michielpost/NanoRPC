@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<HistoryResponse> History(HistoryRequest req);
+    Task<HistoryResponse> History([Body]HistoryRequest req);
 
     /// <summary>
     /// Returns frontier, open block, change representative block, balance, last modified timestamp from local database & block count starting at account up to count
@@ -21,7 +21,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<LedgerResponse> Ledger(LedgerRequest req);
+    Task<LedgerResponse> Ledger([Body]LedgerRequest req);
 
     /// <summary>
     /// Returns a list of block hashes in the account chain ending at block up to count
@@ -29,6 +29,6 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<SuccessorsResponse> Successors(SuccessorsRequest req);
+    Task<SuccessorsResponse> Successors([Body]SuccessorsRequest req);
   }
 }

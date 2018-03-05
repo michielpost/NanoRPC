@@ -1,4 +1,4 @@
-using Refit;
+using RestEase;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<SearchPendingResponse> SearchPending(SearchPendingRequest req);
+    Task<SearchPendingResponse> SearchPending([Body]SearchPendingRequest req);
 
     /// <summary>
     /// Tells the node to look for pending blocks for any account in all available wallets
@@ -22,7 +22,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<SearchPendingAllResponse> SearchPendingAll(SearchPendingAllRequest req);
+    Task<SearchPendingAllResponse> SearchPendingAll([Body]SearchPendingAllRequest req);
 
     /// <summary>
     /// Returns a list of block hashes which have not yet been received by this account.
@@ -30,7 +30,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PendingResponse> Pending(PendingRequest req);
+    Task<PendingResponse> Pending([Body]PendingRequest req);
 
     /// <summary>
     /// Check whether block is pending by hash
@@ -38,7 +38,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<PendingExistsResponse> PendingExists(PendingExistsRequest req);
+    Task<PendingExistsResponse> PendingExists([Body]PendingExistsRequest req);
 
 
   }
