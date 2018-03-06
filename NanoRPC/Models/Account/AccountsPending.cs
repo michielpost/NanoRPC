@@ -12,7 +12,7 @@ namespace NanoRPC
 
     public List<string> Accounts { get; set; }
 
-    public int Count { get; set; }
+    public int Count { get; set; } = 1;
 
     //TODO: Support optional Threshold and Source, but response will be different
   }

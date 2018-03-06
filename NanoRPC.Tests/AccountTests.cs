@@ -134,5 +134,14 @@ namespace NanoRPC.Tests
       Assert.IsNotNull(result.Valid);
       Assert.AreEqual("0", result.Valid);
     }
+
+    [TestMethod]
+    public async Task AccountsPending()
+    {
+      var result = await _client.AccountsPending(new AccountsPendingRequest() { Accounts = new List<string>() { _existingAccount } });
+
+      Assert.IsNotNull(result);
+      Assert.IsNotNull(result.Blocks);
+    }
   }
 }

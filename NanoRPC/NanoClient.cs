@@ -16,7 +16,8 @@ namespace NanoRPC
          
         JsonSerializerSettings = new JsonSerializerSettings()
         {
-          ContractResolver = new CamelCasePropertyNamesContractResolver()
+          ContractResolver = new CamelCasePropertyNamesContractResolver(),
+          NullValueHandling = NullValueHandling.Ignore
         }
       }.For<INanoRPC>();
       return nanoApi;
