@@ -14,9 +14,12 @@ namespace NanoRPC
 
   public class BlockCountTypeResponse
   {
-    public string Send { get; set; }
-    public string Receive { get; set; }
-    public string Open { get; set; }
-    public string Change { get; set; }
+    public long Send { get; set; }
+    public long Receive { get; set; }
+    public long Open { get; set; }
+    public long Change { get; set; }
+
+    public long Total => Send + Receive + Open + Change;
+
   }
 }

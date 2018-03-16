@@ -13,6 +13,6 @@ namespace NanoRPC
 
   public class FrontierCountResponse
   {
-    public string Count { get; set; }
+    public long Count { get; set; }
   }
 }

@@ -7,6 +7,14 @@ namespace NanoRPC
   public interface INanoFrontiersRPC
   {
     /// <summary>
+    /// Reports the number of accounts in the ledger
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<FrontierCountResponse> FrontierCount([Body]FrontierCountRequest req);
+
+    /// <summary>
     /// Returns a list of pairs of account and block hash representing the head block starting at account up to count
     /// </summary>
     /// <param name="req"></param>

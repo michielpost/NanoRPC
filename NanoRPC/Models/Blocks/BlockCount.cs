@@ -14,7 +14,9 @@ namespace NanoRPC
 
   public class BlockCountResponse
   {
-    public string Count { get; set; }
-    public string Unchecked { get; set; }
+    public long Count { get; set; }
+    public long Unchecked { get; set; }
+
+    public long Total => Count + Unchecked;
   }
 }
