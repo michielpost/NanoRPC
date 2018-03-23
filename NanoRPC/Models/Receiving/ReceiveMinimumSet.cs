@@ -10,7 +10,7 @@ namespace NanoRPC
   {
     public string Action { get; } = "receive_minimum_set";
 
-    public string Amount { get; set; }
+    public NanoAmount Amount { get; set; }
   }
 
   public class ReceiveMinimumSetResponse

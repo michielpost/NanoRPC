@@ -15,6 +15,6 @@ namespace NanoRPC
 
   public class DelegatorsCountResponse
   {
-    public string count { get; set; }
+    public long Count { get; set; }
   }
 }

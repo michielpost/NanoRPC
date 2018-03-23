@@ -21,11 +21,11 @@ namespace NanoRPC
     public string Frontier { get; set; }
     public string Open_Block { get; set; }
     public string Representative_Block { get; set; }
-    public string Balance { get; set; }
+    public NanoAmount Balance { get; set; }
     public string Modified_timestamp { get; set; }
     public string Block_Count { get; set; }
     public string Representative { get; set; }
     public string Weight { get; set; }
-    public string Pending { get; set; }
+    public NanoAmount Pending { get; set; }
   }
 }

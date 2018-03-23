@@ -1,3 +1,4 @@
+using NanoRPC.JsonConverters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestEase;
@@ -17,7 +18,8 @@ namespace NanoRPC
         JsonSerializerSettings = new JsonSerializerSettings()
         {
           ContractResolver = new CamelCasePropertyNamesContractResolver(),
-          NullValueHandling = NullValueHandling.Ignore
+          NullValueHandling = NullValueHandling.Ignore,
+          Converters = new List<JsonConverter>() { new NanoAmountJsonConverter() }
         }
       }.For<INanoRPC>();
       return nanoApi;

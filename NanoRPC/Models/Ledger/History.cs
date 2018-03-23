@@ -24,6 +24,6 @@ namespace NanoRPC
     public string Hash { get; set; }
     public string Type { get; set; }
     public string Account { get; set; }
-    public string Amount { get; set; }
+    public NanoAmount Amount { get; set; }
   }
 }

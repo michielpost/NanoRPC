@@ -28,7 +28,7 @@ namespace NanoRPC
   [DebuggerDisplay("Balance = {Balance}, Pending = {Pending}")]
   public class WalletBalance
   {
-    public string Balance { get; set; }
-    public string Pending { get; set; }
+    public NanoAmount Balance { get; set; }
+    public NanoAmount Pending { get; set; }
   }
 }

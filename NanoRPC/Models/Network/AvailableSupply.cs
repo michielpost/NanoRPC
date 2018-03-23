@@ -13,6 +13,6 @@ namespace NanoRPC
 
   public class AvailableSupplyResponse
   {
-    public string Available { get; set; }
+    public NanoAmount Available { get; set; }
   }
 }

@@ -11,7 +11,7 @@ namespace NanoRPC
     public string Action { get; } = "payment_wait";
 
     public string Account { get; set; }
-    public string Amount { get; set; }
+    public NanoAmount Amount { get; set; }
 
     /// <summary>
     /// Miliseconds

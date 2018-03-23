@@ -13,6 +13,6 @@ namespace NanoRPC
 
   public class ReceiveMinimumResponse
   {
-    public string Amount { get; set; }
+    public NanoAmount Amount { get; set; }
   }
 }

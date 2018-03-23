@@ -23,6 +23,9 @@ namespace NanoRPC
 
   public class FrontiersResponse
   {
+    /// <summary>
+    /// Address / PublicKey
+    /// </summary>
     public Dictionary<string, string> Frontiers { get; set; }
   }
 }

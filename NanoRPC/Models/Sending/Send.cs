@@ -14,7 +14,7 @@ namespace NanoRPC
     public string Wallet { get; set; }
     public string Source { get; set; }
     public string Destination { get; set; }
-    public string Amount { get; set; }
+    public NanoAmount Amount { get; set; }
 
     /// <summary>
     /// You can (and should) specify a unique id for each spend to provide idempotency. That means that if you call send two times with the same id, the second request won't send any additional Nano, and will return the first block instead. The id can be any string. This may be a required parameter in the future.

@@ -22,7 +22,10 @@ namespace NanoRPC.Tests
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.Available);
-      Assert.AreEqual("133248289218203497353846153999000000001", result.Available);
+      Assert.AreEqual("133248289218203497353846153999000000001", result.Available.ToString());
+      Assert.AreEqual("133248289218203497353846153999000000001", result.Available.ToString(AmountBase.raw));
+      Assert.AreEqual("133248289", result.Available.ConvertTo(AmountBase.Nano).ToString());
+
     }
 
   }
