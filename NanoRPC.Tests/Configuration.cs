@@ -4,8 +4,8 @@ using System.Text;
 
 namespace NanoRPC.Tests
 {
-    public static class Configuration
-    {
-    public static string BaseUrl = "";
-    }
+  public static class Configuration
+  {
+    public static string BaseUrl = "http://localhost:7076";
+  }
 }
