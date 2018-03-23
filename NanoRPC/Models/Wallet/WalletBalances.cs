@@ -1,6 +1,7 @@
 using NanoRPC.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace NanoRPC
     public Dictionary<string, WalletBalance> Balances { get; set; }
   }
 
+  [DebuggerDisplay("Balance = {Balance}, Pending = {Pending}")]
   public class WalletBalance
   {
     public string Balance { get; set; }

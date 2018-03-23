@@ -1,6 +1,7 @@
 using NanoRPC.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace NanoRPC
 
   }
 
+  [DebuggerDisplay("Balance = {Balance}, Pending = {Pending}")]
   public class AccountBalance
   {
     public string Balance { get; set; }
