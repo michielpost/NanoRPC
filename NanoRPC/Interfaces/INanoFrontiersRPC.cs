@@ -15,7 +15,7 @@ namespace NanoRPC
     Task<FrontierCountResponse> FrontierCount([Body]FrontierCountRequest req);
 
     /// <summary>
-    /// Returns a list of pairs of account and block hash representing the head block starting at account up to count
+    /// Returns a (alphabetically sorted) list of pairs of account and block hash representing the head block starting at account up to count
     /// </summary>
     /// <param name="req"></param>
     /// <returns></returns>
