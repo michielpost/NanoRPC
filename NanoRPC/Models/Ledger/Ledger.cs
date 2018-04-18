@@ -27,6 +27,17 @@ namespace NanoRPC
     ///  Additionally returns pending balance for each account
     /// </summary>
     public bool? Pending { get; set; }
+
+    /// <summary>
+    /// Optional: Return only accounts modified in local database after specific timestamp
+    /// </summary>
+    public string Modified_since { get; set; }
+
+    /// <summary>
+    /// Optional: Additional sorting accounts in descending order
+    /// </summary>
+    public string Sorting { get; set; }
+
   }
 
   public class LedgerResponse

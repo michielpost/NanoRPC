@@ -16,6 +16,14 @@ namespace NanoRPC
     Task<WalletAddResponse> WalletAdd([Body]WalletAddRequest req);
 
     /// <summary>
+    /// Add watch-only accounts to wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletAddWatchResponse> WalletAddWatch([Body]WalletAddWatchRequest req);
+
+    /// <summary>
     /// Returns the sum of all accounts balances in wallet
     /// </summary>
     /// <param name="req"></param>
@@ -132,6 +140,23 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<PasswordValidResponse> PasswordValid([Body]PasswordValidRequest req);
+
+    /// <summary>
+    /// enable_control required, version 11.0+
+    /// Returns frontier, open block, change representative block, balance, last modified timestamp from local database & block count for accounts from wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletLedgerResponse> WalletLedger([Body]WalletLedgerRequest req);
+
+    /// <summary>
+    /// Locks wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletLockResponse> WalletLock([Body]WalletLockRequest req);
 
     /// <summary>
     /// Checks whether wallet is locked

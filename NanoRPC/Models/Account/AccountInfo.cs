@@ -11,8 +11,20 @@ namespace NanoRPC
     public string Action { get; } = "account_info";
 
     public string Account { get; set; }
+
+    /// <summary>
+    /// Optional
+    /// </summary>
     public bool? Representative { get; set; }
+
+    /// <summary>
+    /// Optional
+    /// </summary>
     public bool? Weight { get; set; }
+
+    /// <summary>
+    /// Optional
+    /// </summary>
     public bool? Pending { get; set; }
   }
 

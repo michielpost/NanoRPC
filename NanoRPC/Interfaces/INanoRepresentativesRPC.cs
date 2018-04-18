@@ -15,6 +15,14 @@ namespace NanoRPC
     Task<RepresentativesResponse> Representatives([Body]RepresentativesRequest req);
 
     /// <summary>
+    /// Returns a list of pairs of online representative accounts that have voted recently and empty strings
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<RepresentativesOnlineResponse> RepresentativesOnline([Body]RepresentativesOnlineRequest req);
+
+    /// <summary>
     /// Returns the default representative for wallet
     /// </summary>
     /// <param name="req"></param>
