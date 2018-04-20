@@ -21,6 +21,8 @@ namespace NanoRPC
     /// Optional, returns source account for receive & open blocks (0 for send & change blocks)
     /// </summary>
     public bool? Source { get; set; }
+
+    public bool? Balance { get; set; }
   }
 
   public class BlocksInfoResponse
