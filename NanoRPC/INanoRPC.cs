@@ -11,6 +11,7 @@ namespace NanoRPC
   public interface INanoRPC : INanoAccountRPC,
     INanoBlockRPC,
     INanoBootstrapRPC,
+    INanoConfirmationsRPC,
     INanoConversionsRPC,
     INanoDelegatorsRPC,
     INanoFrontiersRPC,
