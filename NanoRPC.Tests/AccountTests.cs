@@ -62,7 +62,7 @@ namespace NanoRPC.Tests
     [TestMethod]
     public async Task AccountHistory()
     {
-      var result = await _client.AccountHistory(new AccountHistoryRequest() { Key = _testPublicKey });
+      var result = await _client.AccountHistory(new AccountHistoryRequest() { Account = _testAccount });
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.History);

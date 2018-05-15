@@ -25,6 +25,7 @@ namespace NanoRPC
     INanoReceivingRPC,
     INanoRepresentativesRPC,
     INanoSendRPC,
+    INanoStatsRPC,
     INanoUncheckedBlocksRPC,
     INanoWalletRPC,
     INanoWorkRPC

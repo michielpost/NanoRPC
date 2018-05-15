@@ -10,7 +10,7 @@ namespace NanoRPC
   {
     public string Action { get; } = "account_history";
 
-    public string Key { get; set; }
+    public string Account { get; set; }
 
     public string Count { get; set; }
   }

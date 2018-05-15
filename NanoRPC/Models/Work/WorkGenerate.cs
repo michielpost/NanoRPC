@@ -11,6 +11,11 @@ namespace NanoRPC
     public string Action { get; } = "work_generate";
 
     public string Hash { get; set; }
+
+    /// <summary>
+    /// If the optional use_peers parameter is set to true, then the node will query its work peers (if it has any). Without this parameter, the node will only generate work locally.
+    /// </summary>
+    public string Use_peers { get; set; }
   }
 
   public class WorkGenerateResponse
