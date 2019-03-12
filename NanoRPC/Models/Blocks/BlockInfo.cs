@@ -19,8 +19,8 @@ namespace NanoRPC
   public class BlockInfoResponse
   {
     public string Block_account { get; set; }
-    public string Amount { get; set; }
-    public string Balance { get; set; }
+    public NanoAmount Amount { get; set; }
+    public NanoAmount Balance { get; set; }
     public string Height { get; set; }
     public string Local_timestamp { get; set; }
     public string Confirmed { get; set; }

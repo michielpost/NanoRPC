@@ -39,5 +39,13 @@ namespace NanoRPC
     [Post("")]
     Task<ConfirmationQuorumResponse> ConfirmationQuorum([Body]ConfirmationQuorumRequest req);
 
+    /// <summary>
+    /// Returns list of active elections roots (excluting stopped & aborted elections). Find info about specific root with confirmation_info
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<ConfirmationActiveResponse> ConfirmationActive([Body]ConfirmationActiveRequest req);
+
   }
 }

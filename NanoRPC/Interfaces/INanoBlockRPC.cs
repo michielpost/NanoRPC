@@ -39,6 +39,14 @@ namespace NanoRPC
     Task<BlockInfoResponse> BlockInfo([Body]BlockInfoRequest req);
 
     /// <summary>
+    /// Returning block hash for given block content
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<BlockHashResponse> BlockHash([Body]BlockHashRequest req);
+
+    /// <summary>
     /// Creates a json representations of new block based on input data & signed with private key or account in wallet*
     /// </summary>
     /// <param name="req"></param>

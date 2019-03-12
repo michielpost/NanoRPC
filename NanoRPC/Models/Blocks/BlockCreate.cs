@@ -11,7 +11,7 @@ namespace NanoRPC
     public string Action { get; } = "block_create";
 
     public string Type { get; set; }
-    public string Balance { get; set; }
+    public NanoAmount Balance { get; set; }
     public string Key { get; set; }
     public string Representative { get; set; }
     public string Link { get; set; }

@@ -29,7 +29,7 @@ namespace NanoRPC
     /// <param name="req"></param>
     /// <returns></returns>
     [Post("")]
-    Task<WalletBalanceTotalResponse> WalletBalanceTotal([Body]WalletBalanceTotalRequest req);
+    Task<WalletInfoResponse> WalletInfo([Body]WalletInfoRequest req);
 
     /// <summary>
     /// Returns how many rai is owned and how many have not yet been received by all accounts in wallet
@@ -165,6 +165,14 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<WalletLockedResponse> WalletLocked([Body]WalletLockedRequest req);
+
+    /// <summary>
+    /// Reports send/receive information for accounts in wallet. Change blocks are skipped, open blocks will appear as receive. Response will start with most recent blocks according to local ledger. 
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<WalletHistoryResponse> WalletHistory([Body]WalletHistoryRequest req);
 
 
   }

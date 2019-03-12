@@ -21,5 +21,21 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<BootstrapResponse> BootstrapAny([Body]BootstrapAnyRequest req);
+
+    /// <summary>
+    /// Initialize lazy bootstrap with given block hash
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<BootstrapLazyResponse> BootstrapLazy([Body]BootstrapLazyRequest req);
+
+    /// <summary>
+    /// This is an internal/diagnostic RPC, do not rely on its interface being stable
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<BootstrapStatusResponse> BootstrapStatus([Body]BootstrapStatusRequest req);
   }
 }

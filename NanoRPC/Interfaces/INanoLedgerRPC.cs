@@ -22,5 +22,13 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<SuccessorsResponse> Successors([Body]SuccessorsRequest req);
+
+    /// <summary>
+    /// Returns the total pending balance for unopened accounts in the local database, starting at account (optional) up to count (optional), sorted by account number. Notes: By default excludes the burn account.
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<UnopenedResponse> Unopened([Body]UnopenedRequest req);
   }
 }
