@@ -12,6 +12,7 @@ namespace NanoRPC
 
     public string Keys { get; set; }
     public string Count { get; set; }
+    public bool? Json_block { get; set; }
   }
 
   public class UncheckedKeysResponse

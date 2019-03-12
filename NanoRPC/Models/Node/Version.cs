@@ -19,5 +19,6 @@ namespace NanoRPC
     public string Rpc_Version { get; set; }
     public string Store_Version { get; set; }
     public string Node_Vendor { get; set; }
+    public string Protocol_Version { get; set; }
   }
 }

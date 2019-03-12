@@ -23,6 +23,9 @@ namespace NanoRPC
     public bool? Source { get; set; }
 
     public bool? Balance { get; set; }
+
+    public bool? Json_block { get; set; }
+
   }
 
   public class BlocksInfoResponse

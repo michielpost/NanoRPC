@@ -12,6 +12,12 @@ namespace NanoRPC
 
     public string Work { get; set; }
     public string Hash { get; set; }
+
+    /// <summary>
+    /// Optional Difficulty value (16 hexadecimal digits string, 64 bit). Uses difficulty value to validate work
+    /// </summary>
+    public string Difficulty { get; set; }
+
   }
 
   public class WorkValidateResponse

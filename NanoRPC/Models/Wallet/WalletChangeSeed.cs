@@ -14,7 +14,12 @@ namespace NanoRPC
 
     public string Seed { get; set; }
 
-  
+    /// <summary>
+    /// Number, 0 by default. Manually set count of accounts to restore from seed
+    /// </summary>
+    public int? Count { get; set; }
+
+
   }
 
   public class WalletChangeSeedResponse

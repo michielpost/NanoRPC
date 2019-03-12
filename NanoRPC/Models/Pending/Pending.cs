@@ -24,6 +24,11 @@ namespace NanoRPC
     /// </summary>
     public bool? Source { get; set; }
 
+    /// <summary>
+    /// Boolean, false by default. Include active blocks without finished confirmations
+    /// </summary>
+    public bool? Include_active { get; set; }
+
     //TODO: Support different output for optional Source
   }
 

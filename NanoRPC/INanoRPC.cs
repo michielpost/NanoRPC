@@ -31,6 +31,5 @@ namespace NanoRPC
     INanoWorkRPC
   {
 
-    //TODO, wait for universal blocks: Offline signing(create block)
   }
 }

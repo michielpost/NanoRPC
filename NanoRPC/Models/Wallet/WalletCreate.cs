@@ -10,6 +10,11 @@ namespace NanoRPC
   {
     public string Action { get; } = "wallet_create";
 
+    /// <summary>
+    /// Optional Seed value (64 hexadecimal digits string, 256 bit). Changes seed for a new wallet to seed, returning last restored account from given seed & restored count
+    /// </summary>
+    public string Seed { get; set; }
+
   }
 
   public class WalletCreateResponse

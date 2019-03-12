@@ -31,6 +31,22 @@ namespace NanoRPC
     Task<BlocksInfoResponse> BlocksInfo([Body]BlocksInfoRequest req);
 
     /// <summary>
+    /// Retrieves a json representation of block
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<BlockInfoResponse> BlockInfo([Body]BlockInfoRequest req);
+
+    /// <summary>
+    /// Creates a json representations of new block based on input data & signed with private key or account in wallet*
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<BlockCreateResponse> BlockCreate([Body]BlockCreateRequest req);
+
+    /// <summary>
     /// Returns the account containing block
     /// </summary>
     /// <param name="req"></param>
@@ -61,6 +77,14 @@ namespace NanoRPC
     /// <returns></returns>
     [Post("")]
     Task<ChainResponse> Chain([Body]ChainRequest req);
+
+    /// <summary>
+    /// Signing provided block with private key or key of account from wallet
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [Post("")]
+    Task<SignResponse> Sign([Body]SignRequest req);
 
     /// <summary>
     /// Publish block to the network

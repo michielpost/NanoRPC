@@ -9,6 +9,9 @@ namespace NanoRPC
   public class PeersRequest : IRPCAction
   {
     public string Action { get; } = "peers";
+
+    public bool? Peer_details { get; set; }
+
   }
 
   public class PeersResponse

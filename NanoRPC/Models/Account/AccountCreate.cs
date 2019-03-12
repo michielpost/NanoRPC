@@ -13,6 +13,8 @@ namespace NanoRPC
     public string Wallet { get; set; }
 
     public bool? Work { get; set; }
+
+    public string Index { get; set; }
   }
 
   public class AccountCreateResponse

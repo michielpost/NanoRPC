@@ -13,7 +13,7 @@ namespace NanoRPC
     /// <summary>
     /// Optional Returns a list of pairs of representative and its voting weight up to count
     /// </summary>
-    public string Count { get; set; }
+    public int? Count { get; set; }
 
     /// <summary>
     /// Optional. Additional sorting represetntatives in descending order

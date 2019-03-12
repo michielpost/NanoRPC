@@ -12,6 +12,9 @@ namespace NanoRPC
 
     public string Block { get; set; }
     public string Count { get; set; }
+    public int Offset { get; set; }
+    public bool? Reverse { get; set; }
+
   }
 
   public class ChainResponse

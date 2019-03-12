@@ -14,6 +14,8 @@ namespace NanoRPC
 
     public int Count { get; set; } = 1;
 
+    public bool? Include_Active { get; set; }
+
     //TODO: Support optional Threshold and Source, but response will be different
   }
 

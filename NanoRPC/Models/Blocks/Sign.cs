@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace NanoRPC
 {
-  public class ProcessRequest : IRPCAction
+  public class SignRequest : IRPCAction
   {
-    public string Action { get; } = "process";
+    public string Action { get; } = "sign";
 
-    //TODO: Convert json to object
     public string Block { get; set; }
-
+    public string Key { get; set; }
     public bool? Json_block { get; set; }
-
   }
 
-  public class ProcessResponse
+  public class SignResponse
   {
-    public string Hash { get; set; }
+    public string Signature { get; set; }
+    public string Block { get; set; }
   }
 }

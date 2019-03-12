@@ -11,6 +11,9 @@ namespace NanoRPC
     public string Action { get; } = "unchecked_get";
 
     public string Hash { get; set; }
+
+    public bool? Json_block { get; set; }
+
   }
 
   public class UncheckedGetResponse
