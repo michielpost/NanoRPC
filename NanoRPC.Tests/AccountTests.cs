@@ -62,10 +62,15 @@ namespace NanoRPC.Tests
     [TestMethod]
     public async Task AccountHistory()
     {
-      var result = await _client.AccountHistory(new AccountHistoryRequest() { Account = _testAccount });
+      AccountHistoryResponse result = await _client.AccountHistory(new AccountHistoryRequest()
+      {
+        Account = _existingAccount,
+        Count = "10"
+      });
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.History);
+      Assert.IsTrue(result.History.Count == 10);
     }
 
     //[TestMethod]
