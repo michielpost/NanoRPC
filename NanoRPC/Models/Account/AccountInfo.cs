@@ -39,5 +39,6 @@ namespace NanoRPC
     public string Representative { get; set; }
     public string Weight { get; set; }
     public NanoAmount Pending { get; set; }
+    public string Error { get; set; }
   }
 }
