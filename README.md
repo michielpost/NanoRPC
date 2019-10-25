@@ -5,6 +5,8 @@ Nano RPC Client library in C#
 
 Easily communicatie with a Nano Node using C#
 
+Donation address: nano_14ezmbmoj5zqzoj7g99bec1rfr7woe1d7bsa87wmsbfpt4u4mnur8183oqtm
+
 ## How To install?
 Download the source from GitHub or get the compiled assembly from NuGet [NanoRPC on NuGet](https://nuget.org/packages/NanoRPC).
 
