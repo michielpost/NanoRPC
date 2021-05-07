@@ -1,4 +1,7 @@
-<img src="https://raw.githubusercontent.com/michielpost/NanoRPC/master/logo.jpg" height="150" width="150"> [![Build status](https://ci.appveyor.com/api/projects/status/k209wg02y7adyp1j/branch/master?svg=true)](https://ci.appveyor.com/project/michielpost/nanorpc/branch/master)
+<img src="https://raw.githubusercontent.com/michielpost/NanoRPC/master/logo.jpg" height="150" width="150">
+
+[![Build .NET](https://github.com/michielpost/NanoRPC/actions/workflows/build.yml/badge.svg)](https://github.com/michielpost/NanoRPC/actions/workflows/build.yml)
+
 # NanoRPC
 
 Nano RPC Client library in C#
