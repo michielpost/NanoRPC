@@ -1,0 +1,28 @@
+name: Push NuGet packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'NuGet package version'
+        required: true
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Build with dotnet
+      run: dotnet build --configuration Release /p:Version=${{ github.event.inputs.version }}
+    - name: Package NuGet
+      run: dotnet pack -c Release -o out -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg /p:Version=${{ github.event.inputs.version }}
+    - name: Publish packages to nuget.org
+      run: dotnet nuget push ./out/**/*.* -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN}
+      env:
+        NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }} 
