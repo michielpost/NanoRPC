@@ -19,7 +19,6 @@ namespace NanoRPC
     INanoLedgerRPC,
     INanoNetworkRPC,
     INanoNodeRPC,
-    INanoPaymentsRPC,
     INanoPeersRPC,
     INanoPendingRPC,
     INanoReceivingRPC,

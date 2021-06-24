@@ -23,13 +23,5 @@ namespace NanoRPC.Tests
       Assert.IsNotNull(result);
     }
 
-    [TestMethod]
-    public async Task BlockCountType()
-    {
-      var result = await _client.BlockCountType(new BlockCountTypeRequest());
-
-      Assert.IsNotNull(result);
-    }
-
   }
 }

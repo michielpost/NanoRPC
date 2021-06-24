@@ -71,14 +71,6 @@ namespace NanoRPC
     Task<BlockCountResponse> BlockCount([Body]BlockCountRequest req);
 
     /// <summary>
-    /// Reports the number of blocks in the ledger by type (send, receive, open, change)
-    /// </summary>
-    /// <param name="req"></param>
-    /// <returns></returns>
-    [Post("")]
-    Task<BlockCountTypeResponse> BlockCountType([Body]BlockCountTypeRequest req);
-
-    /// <summary>
     /// Returns a list of block hashes in the account chain starting at block up to count
     /// </summary>
     /// <param name="req"></param>
