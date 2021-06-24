@@ -20,7 +20,7 @@ var balanceResult = await _client.AccountBalance(new AccountBalanceRequest() { A
 
 ## Supported RPC methods
 All RPC methods are supported.  
-List of RPC methods: https://github.com/nanocurrency/raiblocks/wiki/RPC-protocol
+List of RPC methods: https://docs.nano.org/commands/rpc-protocol/
 
 Please create an issue if something is not working as expected. Pull Requests are also welcome!
 
