@@ -24,7 +24,7 @@ namespace NanoRPC
 
   public class AccountHistoryResponse
   {
-    public List<AccountHistoryDetail> History { get; set; }
+    public List<AccountHistoryDetail> History { get; set; } = new List<AccountHistoryDetail>();
 
   }
 

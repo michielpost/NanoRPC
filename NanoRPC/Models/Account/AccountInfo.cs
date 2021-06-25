@@ -30,8 +30,8 @@ namespace NanoRPC
 
   public class AccountInfoResponse
   {
-    public string Frontier { get; set; }
-    public string Open_Block { get; set; }
+    public string? Frontier { get; set; }
+    public string? Open_Block { get; set; }
     public string Representative_Block { get; set; }
     public NanoAmount Balance { get; set; }
     public string Modified_timestamp { get; set; }

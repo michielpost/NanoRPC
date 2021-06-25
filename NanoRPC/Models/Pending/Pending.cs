@@ -12,7 +12,7 @@ namespace NanoRPC
 
     public string Account { get; set; }
 
-    public string Count { get; set; }
+    public string? Count { get; set; }
 
     /// <summary>
     /// Optional. Returns a list of pending block hashes with amount more or equal to threshold
@@ -29,11 +29,16 @@ namespace NanoRPC
     /// </summary>
     public bool? Include_active { get; set; }
 
+    public bool Sorting { get; } = true; 
+
+
+    public bool? include_only_confirmed { get; set; } = true;
+
     //TODO: Support different output for optional Source
   }
 
   public class PendingResponse
   {
-    public List<string> Blocks { get; set; }
+    public Dictionary<string, NanoAmount> Blocks { get; set; } = new();
   }
 }

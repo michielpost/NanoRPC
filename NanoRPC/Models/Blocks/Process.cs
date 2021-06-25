@@ -9,11 +9,12 @@ namespace NanoRPC
   public class ProcessRequest : IRPCAction
   {
     public string Action { get; } = "process";
+    public bool Json_block { get; } = true;
 
-    //TODO: Convert json to object
-    public string Block { get; set; }
+    public string SubType { get; set; }
 
-    public bool? Json_block { get; set; }
+    public Block Block { get; set; }
+
 
   }
 

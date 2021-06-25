@@ -14,14 +14,16 @@ namespace NanoRPC
 
     public int Count { get; set; } = 1;
 
+    public bool Sorting { get; } = true;
     public bool? Include_Active { get; set; }
+    public bool? include_only_confirmed { get; set; } = true;
 
     //TODO: Support optional Threshold and Source, but response will be different
   }
 
   public class AccountsPendingResponse
   {
-    public Dictionary<string, List<string>> Blocks { get; set; }
+    public Dictionary<string, Dictionary<string, NanoAmount>> Blocks { get; set; } = new();
 
   }
 }

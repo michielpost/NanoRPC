@@ -12,7 +12,7 @@ namespace NanoRPC
 
     public string Hash { get; set; }
 
-    public bool? Json_block { get; set; }
+    public bool Json_block { get; } = true;
 
   }
 
@@ -23,8 +23,8 @@ namespace NanoRPC
     public NanoAmount Balance { get; set; }
     public string Height { get; set; }
     public string Local_timestamp { get; set; }
-    public string Confirmed { get; set; }
-    public string Contents { get; set; }
+    public bool Confirmed { get; set; }
+    public Block Contents { get; set; }
     public string Subtype { get; set; }
   }
 }

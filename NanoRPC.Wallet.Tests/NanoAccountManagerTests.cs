@@ -1,0 +1,79 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NanoRPC.Wallet.Tests
+{
+  [TestClass]
+  public class NanoAccountManagerTests
+  {
+    private NanoAccountManager manager;
+    private const string seed = "31310173082E376A949D1297660ACD7BF30A4F5DBAA16C4F545483FD511DCA32";
+    private const string representative = "nano_34zuxqdsucurhjrmpc4aixzbgaa4wjzz6bn5ryn56emc9tmd3pnxjoxfzyb6";
+
+    public NanoAccountManagerTests()
+    {
+      var api = NanoClient.GetClient(Configuration.BaseUrl);
+      manager = new NanoAccountManager(api, representative, seed);
+    }
+
+    [TestMethod]
+    public async Task GetAddress()
+    {
+      var result = await manager.GetAddressAsync(0);
+      var wallet = await manager.GetNanoWallet(0);
+
+
+      Assert.IsNotNull(result);
+      Assert.IsNotNull(result.Account);
+      Assert.AreEqual("nano_1crxm1owwau6wddwh1eipz8p6z7ue8fwffawk4bgisiqcz6x69hsepgtgj31", result.Account);
+      Assert.AreEqual(wallet.Account, result.Account);
+    }
+
+    [TestMethod]
+    public async Task GetAddressAtIndex()
+    {
+      var result = await manager.GetAddressAsync(3);
+      var wallet = await manager.GetNanoWallet(3);
+
+      Assert.IsNotNull(result);
+      Assert.IsNotNull(result.Account);
+      Assert.AreEqual("nano_1kt44ok7q5wjmrbsiynk4otyrtkucnbmd4tzwo87xg4xduwp4kgok4jx4yu7", result.Account);
+      Assert.AreEqual(wallet.Account, result.Account);
+
+    }
+
+
+    [TestMethod]
+    public async Task GetPendingTransactionsAll()
+    {
+      await manager.GetAddressAsync(0);
+      await manager.GetAddressAsync(3);
+
+      var result = await manager.GetPendingTransactionsAsync();
+
+      Assert.IsNotNull(result);
+      Assert.AreEqual(2, result.Blocks.Count);
+
+    }
+
+    [TestMethod]
+    public async Task GetBalances()
+    {
+      await manager.GetAddressAsync(0);
+      await manager.GetAddressAsync(3);
+
+      var result = await manager.GetBalancesAsync();
+
+      Assert.IsNotNull(result);
+      Assert.AreEqual(2, result.Balances.Count);
+
+    }
+
+
+
+  }
+}
