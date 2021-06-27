@@ -18,6 +18,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Chaos.NaCl.Standard" Version="1.0.0" />
+    <PackageReference Include="Isopoh.Cryptography.Blake2b" Version="1.1.10" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NanoRPC\NanoRPC.csproj" />
   </ItemGroup>
 

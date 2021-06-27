@@ -1,3 +1,5 @@
+using Isopoh.Cryptography.Blake2b;
+using Isopoh.Cryptography.SecureArray;
 using NanoRPC.Wallet.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,32 @@ namespace NanoRPC.Wallet
       this.api = api;
       this.representative = representative;
       this.seed = seed;
+    }
+
+    public static byte[] HexStringToByteArray(string hex)
+    {
+      int NumberChars = hex.Length;
+      byte[] bytes = new byte[NumberChars / 2];
+      for (int i = 0; i < NumberChars; i += 2)
+        bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+      return bytes;
+    }
+
+    public string GetPrivateKey(int index)
+    {
+      var seedBytes = HexStringToByteArray(seed);
+      string indexHex = index.ToString("X8");
+      var indexBytes = HexStringToByteArray(indexHex);
+
+      var hasher = Blake2B.Create(new Blake2BConfig() { OutputSizeInBytes = 32 }, SecureArray.DefaultCall);
+      hasher.Update(seedBytes);
+      hasher.Update(indexBytes);
+
+      var hashAll = hasher.Finish();
+
+      string hexPrivateKey = BitConverter.ToString(hashAll).Replace("-", "");
+
+      return hexPrivateKey;
     }
 
     public async Task<AccountInfo> GetAddressAsync(int index)
