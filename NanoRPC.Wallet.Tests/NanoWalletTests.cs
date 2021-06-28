@@ -20,7 +20,7 @@ namespace NanoRPC.Wallet.Tests
     {
       var api = NanoClient.GetClient(Configuration.BaseUrl);
       var manager = new NanoAccountManager(api, representative, seed);
-      wallet = await manager.GetNanoWallet(0);
+      wallet = manager.GetNanoWallet(0);
     }
 
 

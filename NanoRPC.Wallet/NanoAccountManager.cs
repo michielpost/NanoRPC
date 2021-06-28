@@ -15,9 +15,6 @@ namespace NanoRPC.Wallet
     private readonly string representative;
     private readonly string seed;
     
-
-    private List<AccountInfo> accountInfo = new List<AccountInfo>();
-
     public NanoAccountManager(INanoRPC api, string representative, string seed)
     {
       this.api = api;
@@ -25,7 +22,7 @@ namespace NanoRPC.Wallet
       this.seed = seed;
     }
 
-    public static byte[] HexStringToByteArray(string hex)
+    private static byte[] HexStringToByteArray(string hex)
     {
       int NumberChars = hex.Length;
       byte[] bytes = new byte[NumberChars / 2];
@@ -97,46 +94,49 @@ namespace NanoRPC.Wallet
       return "nano_" + c_account + checksum;
     }
 
-    public async Task<AccountInfo> GetAddressAsync(int index)
+    public AccountInfo GetAddress(int index)
     {
-      //Get from memory
-      var existing = accountInfo.Where(x => x.Index == index).FirstOrDefault();
-      if (existing != null)
-        return existing;
-
-      var apiResult = await api.DeterministicKey(new DeterministicKeyRequest() { Seed = seed, Index = index.ToString() });
+      var privateKey = GetPrivateKey(index);
+      var publicKey = GetPublicKey(privateKey);
+      var address = GetAddress(publicKey);
 
       AccountInfo info = new AccountInfo
       {
         Index = index,
-        Account = apiResult.Account,
-        Private = apiResult.Private,
-        Public = apiResult.Public
+        Account = address,
+        Private = privateKey,
+        Public = publicKey
       };
 
-      accountInfo.Add(info);
-
       return info;
-
     }
 
-    public async Task<NanoWallet> GetNanoWallet(int index)
+    public IEnumerable<AccountInfo> GetAddress(Range range)
     {
-      var accountInfo = await GetAddressAsync(index);
+      List<AccountInfo> result = new List<AccountInfo>();
+      foreach (var r in range)
+        result.Add(GetAddress(r));
+
+      return result;
+    }
+
+    public NanoWallet GetNanoWallet(int index)
+    {
+      var accountInfo = GetAddress(index);
 
       return new NanoWallet(api, representative, accountInfo);
     }
 
 
-    public async Task<AccountsBalancesResponse> GetBalancesAsync()
+    public async Task<AccountsBalancesResponse> GetBalancesAsync(Range range)
     {
-      var accounts = accountInfo.Select(x => x.Account).ToList();
+      var accounts = GetAddress(range).Select(x => x.Account).ToList();
       return await api.AccountsBalances(new AccountsBalancesRequest() { Accounts = accounts });
     }
 
-    public Task<AccountsPendingResponse> GetPendingTransactionsAsync()
+    public Task<AccountsPendingResponse> GetPendingTransactionsAsync(Range range)
     {
-      var accounts = accountInfo.Select(x => x.Account).ToList();
+      var accounts = GetAddress(range).Select(x => x.Account).ToList();
       return api.AccountsPending(new AccountsPendingRequest { Accounts = accounts });
     }
 

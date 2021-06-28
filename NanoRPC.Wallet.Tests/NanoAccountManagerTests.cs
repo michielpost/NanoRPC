@@ -20,6 +20,22 @@ namespace NanoRPC.Wallet.Tests
       manager = new NanoAccountManager(api, representative, seed);
     }
 
+    private static string RandomHexString()
+    {
+      // 64 character precision or 256-bits
+      Random rdm = new Random();
+      string hexValue = string.Empty;
+      int num;
+
+      for (int i = 0; i < 8; i++)
+      {
+        num = rdm.Next(0, int.MaxValue);
+        hexValue += num.ToString("X8");
+      }
+
+      return hexValue.ToUpperInvariant();
+    }
+
     [TestMethod]
     public void GetPrivateKey()
     {
@@ -33,14 +49,12 @@ namespace NanoRPC.Wallet.Tests
       Assert.AreEqual("nano_1crxm1owwau6wddwh1eipz8p6z7ue8fwffawk4bgisiqcz6x69hsepgtgj31", address);
     }
 
-   
-
 
     [TestMethod]
     public async Task GetAddress()
     {
-      var result = await manager.GetAddressAsync(0);
-      var wallet = await manager.GetNanoWallet(0);
+      var result = manager.GetAddress(0);
+      var wallet = manager.GetNanoWallet(0);
 
 
       Assert.IsNotNull(result);
@@ -52,8 +66,8 @@ namespace NanoRPC.Wallet.Tests
     [TestMethod]
     public async Task GetAddressAtIndex()
     {
-      var result = await manager.GetAddressAsync(3);
-      var wallet = await manager.GetNanoWallet(3);
+      var result = manager.GetAddress(3);
+      var wallet = manager.GetNanoWallet(3);
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.Account);
@@ -66,26 +80,20 @@ namespace NanoRPC.Wallet.Tests
     [TestMethod]
     public async Task GetPendingTransactionsAll()
     {
-      await manager.GetAddressAsync(0);
-      await manager.GetAddressAsync(3);
-
-      var result = await manager.GetPendingTransactionsAsync();
+      var result = await manager.GetPendingTransactionsAsync(0..3);
 
       Assert.IsNotNull(result);
-      Assert.AreEqual(2, result.Blocks.Count);
+      Assert.AreEqual(3, result.Blocks.Count);
 
     }
 
     [TestMethod]
     public async Task GetBalances()
     {
-      await manager.GetAddressAsync(0);
-      await manager.GetAddressAsync(3);
-
-      var result = await manager.GetBalancesAsync();
+      var result = await manager.GetBalancesAsync(0..3);
 
       Assert.IsNotNull(result);
-      Assert.AreEqual(2, result.Balances.Count);
+      Assert.AreEqual(3, result.Balances.Count);
 
     }
 

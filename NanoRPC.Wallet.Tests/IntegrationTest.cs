@@ -45,7 +45,7 @@ namespace NanoRPC.Wallet.Tests
     public async Task RunIntegrationTest()
     {
       //Original account with some funds
-      var originalWallet = await manager.GetNanoWallet(0);
+      var originalWallet = manager.GetNanoWallet(0);
 
       await originalWallet.ProcessPendingTransactions();
 
@@ -56,7 +56,7 @@ namespace NanoRPC.Wallet.Tests
       //New and unused random account
       var randomSeed = RandomHexString();
       var newManager = new NanoAccountManager(api, representative, randomSeed);
-      var newWallet = await newManager.GetNanoWallet(0);
+      var newWallet = newManager.GetNanoWallet(0);
 
       //Assert: balance of fresh account should be 0
       var newBalance = await newWallet.GetBalanceAsync();

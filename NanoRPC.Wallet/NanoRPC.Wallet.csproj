@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Isopoh.Cryptography.Blake2b" Version="1.1.10" />
-    <PackageReference Include="TweetNaClCore" Version="1.0.0" />
+    <PackageReference Include="RangeForeach" Version="0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
