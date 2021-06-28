@@ -20,6 +20,6 @@ namespace NanoRPC
 
   public class ProcessResponse
   {
-    public string Hash { get; set; }
+    public string? Hash { get; set; }
   }
 }

@@ -14,11 +14,12 @@ namespace NanoRPC
     public bool? Json_block { get; set; } = true;
 
     public string Account { get; set; }
+    public string Previous { get; set; }
+
     public string Representative { get; set; }
     public NanoAmount Balance { get; set; }
     public string Key { get; set; }
     public string Link { get; set; }
-    public string Previous { get; set; }
 
 
   }

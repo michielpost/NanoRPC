@@ -45,7 +45,7 @@ namespace NanoRPC.Wallet
       return await api.Pending(new PendingRequest {  Account = accountInfo.Account });
     }
 
-    public Task<BlockCreateResponse> CreateReceiveTransactionAsync(
+    public (Block block, string hash) CreateAndSignBlock(
       NanoAmount amount,
       string receiveHash,
       string? currentRepresentative = null,
@@ -55,13 +55,13 @@ namespace NanoRPC.Wallet
       {
         Account = accountInfo.Account,
         Balance = amount,
-        Key = accountInfo.Private,
         Link = receiveHash,
-        Previous = previousHash ?? "0",
+        Previous = previousHash ?? "00",
         Representative = currentRepresentative ?? representative
       };
 
-      return api.BlockCreate(block);
+      var signedBlock = BlockSigner.SignBlock(block, accountInfo.Private);
+      return signedBlock;
     }
 
     public async Task<List<string>> ProcessPendingTransactions()
@@ -88,17 +88,17 @@ namespace NanoRPC.Wallet
 
       var newAmount = currentAccountInfo.Balance + amount;
 
-      var block = await CreateReceiveTransactionAsync(newAmount, receiveBlockHash, currentAccountInfo.Representative, currentAccountInfo.Frontier);
+      var signResult = CreateAndSignBlock(newAmount, receiveBlockHash, currentAccountInfo.Representative, currentAccountInfo.Frontier);
 
       //Send block
       var subType = "receive";
       if (currentAccountInfo.Open_Block == null)
         subType = "open";
 
-      var result = await api.Process(new ProcessRequest() { SubType = subType, Block = block.Block });
-      await WaitForConfirm(result.Hash);
+      //Send block
+      string hash = await SendSignedBlock(signResult.block, signResult.hash, subType);
 
-      return result.Hash;
+      return hash;
 
     }
 
@@ -108,13 +108,25 @@ namespace NanoRPC.Wallet
 
       var newAmount = currentAccountInfo.Balance - amount;
 
-      var block = await CreateReceiveTransactionAsync(newAmount, toAccount, currentAccountInfo.Representative, currentAccountInfo.Frontier);
+      var signResult = CreateAndSignBlock(newAmount, toAccount, currentAccountInfo.Representative, currentAccountInfo.Frontier);
 
       //Send block
-      var result = await api.Process(new ProcessRequest() { SubType = "send", Block = block.Block });
+      string hash = await SendSignedBlock(signResult.block, signResult.hash, "send");
+
+      return hash;
+    }
+
+    private async Task<string> SendSignedBlock(Block block, string hash, string subtype)
+    {
+      //Add work to block
+      var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = hash });
+      block.Work = workResult.Work;
+
+      var result = await api.Process(new ProcessRequest() { SubType = subtype, Block = block });
+      if (string.IsNullOrEmpty(result.Hash))
+        throw new Exception("No hash returned.");
+
       await WaitForConfirm(result.Hash);
-
-
       return result.Hash;
     }
 

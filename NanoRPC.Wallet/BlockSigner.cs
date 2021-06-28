@@ -14,6 +14,25 @@ namespace NanoRPC.Wallet
     private static Regex accountpattern = new Regex("^(xrb_|nano_|ban_|lumo_|nos_|eur_|usd_)(1|3)[13456789abcdefghijkmnopqrstuwxyz]{59}$"); // accounts
     private static Regex hashpattern = new Regex("[0-9a-fA-F]{64}"); // hashes and pubkeys
 
+    public static (Block block, string hash) SignBlock(BlockCreateRequest create, string privateKey)
+    {
+      var hash = HashBlock(create);
+      var sign = SignHash(hash, privateKey);
+
+      Block result = new Block
+      {
+        Account = create.Account,
+        Previous = create.Previous,
+        Representative = create.Representative,
+        Balance = create.Balance,
+        Link = create.Link,
+        //Link_as_account = 
+        Signature = sign,
+      };
+
+      return (result, hash);
+    }
+
     public static string HashBlock(BlockCreateRequest block)
     {
       var preable = "0000000000000000000000000000000000000000000000000000000000000006";
