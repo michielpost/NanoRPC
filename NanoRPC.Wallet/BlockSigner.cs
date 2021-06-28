@@ -127,7 +127,7 @@ namespace NanoRPC.Wallet
         }
       }
 
-      TweetNaCl.TweetNaCl.ModL(sm[32..], 0, x);
+      TweetNaCl.TweetNaCl.ModL(sm, 32, x);
       return sm;
     }
   }
