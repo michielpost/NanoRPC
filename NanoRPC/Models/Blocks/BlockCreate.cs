@@ -18,7 +18,7 @@ namespace NanoRPC
     public NanoAmount Balance { get; set; }
     public string Key { get; set; }
     public string Link { get; set; }
-    public string? Previous { get; set; }
+    public string Previous { get; set; }
 
 
   }

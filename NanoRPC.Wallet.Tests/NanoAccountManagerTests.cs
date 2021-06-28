@@ -47,6 +47,9 @@ namespace NanoRPC.Wallet.Tests
 
       var address = manager.GetAddress(publicKey);
       Assert.AreEqual("nano_1crxm1owwau6wddwh1eipz8p6z7ue8fwffawk4bgisiqcz6x69hsepgtgj31", address);
+
+      var reversePublicKey = BlockSigner.GetPublicKey(address);
+      Assert.AreEqual(publicKey, reversePublicKey);
     }
 
 

@@ -801,7 +801,7 @@ namespace TweetNaCl
       return Vn(x, y, 32);
     }
 
-    private static void ModL(Byte[] r, Int32 rOffset, Int64[] x/*[64]*/)
+    public static void ModL(Byte[] r, Int32 rOffset, Int64[] x/*[64]*/)
     {
       Int64 carry;
       Int32 i, j;
@@ -838,7 +838,7 @@ namespace TweetNaCl
       }
     }
 
-    private static void Reduce(Byte[] r)
+    public static void Reduce(Byte[] r)
     {
       Int64[] x = new Int64[64];
       for (int i = 0; i < 64; i++)

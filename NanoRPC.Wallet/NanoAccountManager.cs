@@ -22,20 +22,13 @@ namespace NanoRPC.Wallet
       this.seed = seed;
     }
 
-    private static byte[] HexStringToByteArray(string hex)
-    {
-      int NumberChars = hex.Length;
-      byte[] bytes = new byte[NumberChars / 2];
-      for (int i = 0; i < NumberChars; i += 2)
-        bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
-      return bytes;
-    }
+    
 
     public string GetPrivateKey(int index)
     {
-      var seedBytes = HexStringToByteArray(seed);
+      var seedBytes = Utils.HexStringToByteArray(seed);
       string indexHex = index.ToString("X8");
-      var indexBytes = HexStringToByteArray(indexHex);
+      var indexBytes = Utils.HexStringToByteArray(indexHex);
 
       var hasher = Blake2B.Create(new Blake2BConfig() { OutputSizeInBytes = 32 }, SecureArray.DefaultCall);
       hasher.Update(seedBytes);
@@ -50,7 +43,7 @@ namespace NanoRPC.Wallet
 
     public string GetPublicKey(string privateKey)
     {
-      var keyBytes = HexStringToByteArray(privateKey);
+      var keyBytes = Utils.HexStringToByteArray(privateKey);
 
       var publicBytes = DerivePublicFromSecret(keyBytes);
 
@@ -59,7 +52,7 @@ namespace NanoRPC.Wallet
       return hexPublic;
     }
 
-    private byte[] DerivePublicFromSecret(byte[] sk)
+    public static byte[] DerivePublicFromSecret(byte[] sk)
     {
       Int32 GF_LEN = 16;
 
@@ -84,7 +77,7 @@ namespace NanoRPC.Wallet
 
     public string GetAddress(string publicKey)
     {
-      var keyBytes = HexStringToByteArray(publicKey);
+      var keyBytes = Utils.HexStringToByteArray(publicKey);
       var checksumBytes = Blake2B.ComputeHash(keyBytes, new Blake2BConfig() { OutputSizeInBytes = 5 }, SecureArray.DefaultCall);
       checksumBytes = checksumBytes.Reverse().ToArray();
 
