@@ -45,35 +45,12 @@ namespace NanoRPC.Wallet
     {
       var keyBytes = Utils.HexStringToByteArray(privateKey);
 
-      var publicBytes = DerivePublicFromSecret(keyBytes);
+      var publicBytes = Utils.DerivePublicFromSecret(keyBytes);
 
       string hexPublic = BitConverter.ToString(publicBytes).Replace("-", "");
 
       return hexPublic;
     }
-
-    public static byte[] DerivePublicFromSecret(byte[] sk)
-    {
-      Int32 GF_LEN = 16;
-
-      Int64[][] /*gf*/ p = new Int64[4][] { new Int64[GF_LEN], new Int64[GF_LEN], new Int64[GF_LEN], new Int64[GF_LEN] };
-      var pk = new byte[32];
-
-      var hasher = Blake2B.Create(new Blake2BConfig() { OutputSizeInBytes = 64 }, SecureArray.DefaultCall);
-      hasher.Update(sk);
-      var d = hasher.Finish();
-
-      d[0] &= 248;
-      d[31] &= 127;
-      d[31] |= 64;
-
-      TweetNaCl.TweetNaCl.Scalarbase(p, d, 0);
-      TweetNaCl.TweetNaCl.Pack(pk, p);
-
-      return pk;
-    }
-
-   
 
     public string GetAddress(string publicKey)
     {
