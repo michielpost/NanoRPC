@@ -23,10 +23,17 @@ namespace NanoRPC.Wallet.Tests
     [TestMethod]
     public void GetPrivateKey()
     {
-      var result = manager.GetPrivateKey(0);
+      var privateKey = manager.GetPrivateKey(0);
+      Assert.AreEqual("8F0CEB57251F60F54F5E3AFED5AD9D7323FD1EE5D0A05825EAA4E746520CE0C4", privateKey);
 
-      Assert.AreEqual("8F0CEB57251F60F54F5E3AFED5AD9D7323FD1EE5D0A05825EAA4E746520CE0C4", result);
+      var publicKey = manager.GetPublicKey(privateKey);
+      Assert.AreEqual("2B1D982BCE2364E2D7C78190B7CD627CBB619BC6B51C9092E8661757C9D21DF9", publicKey);
+
+      var address = manager.GetAddress(publicKey);
+      Assert.AreEqual("nano_1crxm1owwau6wddwh1eipz8p6z7ue8fwffawk4bgisiqcz6x69hsepgtgj31", address);
     }
+
+   
 
 
     [TestMethod]

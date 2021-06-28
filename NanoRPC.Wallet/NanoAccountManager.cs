@@ -14,6 +14,7 @@ namespace NanoRPC.Wallet
     private readonly INanoRPC api;
     private readonly string representative;
     private readonly string seed;
+    
 
     private List<AccountInfo> accountInfo = new List<AccountInfo>();
 
@@ -48,6 +49,52 @@ namespace NanoRPC.Wallet
       string hexPrivateKey = BitConverter.ToString(hashAll).Replace("-", "");
 
       return hexPrivateKey;
+    }
+
+    public string GetPublicKey(string privateKey)
+    {
+      var keyBytes = HexStringToByteArray(privateKey);
+
+      var publicBytes = DerivePublicFromSecret(keyBytes);
+
+      string hexPublic = BitConverter.ToString(publicBytes).Replace("-", "");
+
+      return hexPublic;
+    }
+
+    private byte[] DerivePublicFromSecret(byte[] sk)
+    {
+      Int32 GF_LEN = 16;
+
+      Int64[][] /*gf*/ p = new Int64[4][] { new Int64[GF_LEN], new Int64[GF_LEN], new Int64[GF_LEN], new Int64[GF_LEN] };
+      var pk = new byte[32];
+
+      var hasher = Blake2B.Create(new Blake2BConfig() { OutputSizeInBytes = 64 }, SecureArray.DefaultCall);
+      hasher.Update(sk);
+      var d = hasher.Finish();
+
+      d[0] &= 248;
+      d[31] &= 127;
+      d[31] |= 64;
+
+      TweetNaCl.TweetNaCl.Scalarbase(p, d, 0);
+      TweetNaCl.TweetNaCl.Pack(pk, p);
+
+      return pk;
+    }
+
+   
+
+    public string GetAddress(string publicKey)
+    {
+      var keyBytes = HexStringToByteArray(publicKey);
+      var checksumBytes = Blake2B.ComputeHash(keyBytes, new Blake2BConfig() { OutputSizeInBytes = 5 }, SecureArray.DefaultCall);
+      checksumBytes = checksumBytes.Reverse().ToArray();
+
+      var checksum = NanoBase32Encoding.BytesToBase32(checksumBytes);
+      var c_account = NanoBase32Encoding.BytesToBase32(keyBytes);
+
+      return "nano_" + c_account + checksum;
     }
 
     public async Task<AccountInfo> GetAddressAsync(int index)
