@@ -18,7 +18,7 @@ namespace NanoRPC
 
   }
 
-  public class ProcessResponse
+  public class ProcessResponse : BaseResponse
   {
     public string? Hash { get; set; }
   }

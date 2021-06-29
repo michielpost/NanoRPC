@@ -24,8 +24,8 @@ namespace NanoRPC
 
   }
 
-  public class WorkGenerateResponse
+  public class WorkGenerateResponse : BaseResponse
   {
-    public string Work { get; set; }
+    public string? Work { get; set; }
   }
 }

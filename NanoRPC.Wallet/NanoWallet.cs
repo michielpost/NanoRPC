@@ -56,7 +56,7 @@ namespace NanoRPC.Wallet
         Account = accountInfo.Account,
         Balance = amount,
         Link = receiveHash,
-        Previous = previousHash ?? "00",
+        Previous = previousHash ?? 0.ToString("X64"),
         Representative = currentRepresentative ?? representative
       };
 
@@ -92,11 +92,15 @@ namespace NanoRPC.Wallet
 
       //Send block
       var subType = "receive";
+      string workHash = currentAccountInfo.Frontier ?? this.accountInfo.Public;
       if (currentAccountInfo.Open_Block == null)
+      {
         subType = "open";
+        workHash = this.accountInfo.Public;
+      }
 
       //Send block
-      string hash = await SendSignedBlock(signResult.block, signResult.hash, subType);
+      string hash = await SendSignedBlock(signResult.block, workHash, subType);
 
       return hash;
 
@@ -111,20 +115,23 @@ namespace NanoRPC.Wallet
       var signResult = CreateAndSignBlock(newAmount, toAccount, currentAccountInfo.Representative, currentAccountInfo.Frontier);
 
       //Send block
-      string hash = await SendSignedBlock(signResult.block, signResult.hash, "send");
+      string hash = await SendSignedBlock(signResult.block, currentAccountInfo.Frontier, "send");
 
       return hash;
     }
 
-    private async Task<string> SendSignedBlock(Block block, string hash, string subtype)
+    private async Task<string> SendSignedBlock(Block block, string workHash, string subtype)
     {
       //Add work to block
-      var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = hash });
+      var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = workHash });
+      if (string.IsNullOrEmpty(workResult.Work))
+        throw new Exception($"No work returned. {workResult.Error}");
+
       block.Work = workResult.Work;
 
       var result = await api.Process(new ProcessRequest() { SubType = subtype, Block = block });
       if (string.IsNullOrEmpty(result.Hash))
-        throw new Exception("No hash returned.");
+        throw new Exception($"No hash returned. {result.Error}");
 
       await WaitForConfirm(result.Hash);
       return result.Hash;
