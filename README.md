@@ -24,6 +24,18 @@ var client = NanoClient.GetClient("http://url_to_nano_node:port");
 var balanceResult = await _client.AccountBalance(new AccountBalanceRequest() { Account = "xrb_1cyca8x1u4bdi3m6aqjx1ouwayrnais7aucc33w9zxdtrwqaoxdt8yfdzm94" });
 ```
 
+### Wallet
+```cs
+var client = NanoClient.GetClient(A"http://url_to_nano_node:port");
+var manager = new NanoAccountManager(client, "nano_default_representative_address", "HEX SEED STRING");
+var wallet = manager.GetNanoWallet(i);
+
+var balance = await wallet.GetBalanceAsync();
+
+//Send Nano
+await wallet.SendNano("To Address", amount);
+```
+
 ## Supported RPC methods
 All RPC methods are supported.  
 List of RPC methods: https://docs.nano.org/commands/rpc-protocol/
