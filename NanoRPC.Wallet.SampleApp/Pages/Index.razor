@@ -1,0 +1,106 @@
+@page "/"
+
+<h1>NanoRPC Wallet Sample App</h1>
+
+API:
+<input type="text" @bind="ApiBase" />
+<br />
+
+Seed:
+<input type="text" @bind="Seed" />
+<button class="btn btn-primary" @onclick="RandomSeed">Generate Random Seed</button>
+<br />
+
+Index:
+<input type="text" @bind="WalletIndex" />
+<br />
+
+<button class="btn btn-primary" @onclick="LoadWallet">Load Wallet</button>
+
+@if (!string.IsNullOrEmpty(Address))
+{
+  <br />
+
+  <p>
+    Address: @Address
+
+    @if (QR != null)
+    {
+      <img width="300" src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(QR))" />
+    }
+
+  </p>
+
+  @if (Balance != null)
+  {
+    <p>
+      Balance: @Balance.Balance / @Balance.Pending
+    </p>
+  }
+
+  @if (Pending != null && Pending.Blocks.Any())
+  {
+    <h3>Pending transactions:</h3>
+    <ul>
+      @foreach (var tx in Pending.Blocks)
+      {
+        <li>@tx.Key / @tx.Value</li>
+      }
+    </ul>
+
+    <button class="btn btn-primary" @onclick="ProcessPending">Process Pending Transactions</button>
+  }
+  else
+  {
+    <p>No pending transactions</p>
+  }
+
+  @if (History != null && History.History.Any())
+  {
+    <h3>Last transactions:</h3>
+    <ul>
+      @foreach (var tx in History.History)
+      {
+        <li>@tx.Account / @tx.Amount</li>
+      }
+    </ul>
+
+    <button class="btn btn-primary" @onclick="ProcessPending">Process Pending Transactions</button>
+  }
+
+  @if (Balance != null)
+  {
+    <h3>Send NANO</h3>
+
+    if (Balance.Balance.Raw > 0)
+    {
+<p>
+  To address:
+  <input type="text" @bind="ToAddress" />
+  <br />
+
+  Index:
+  <input type="text" @bind="ToAmount" /> knano (1 knano is 0.001 NANO)
+  <br />
+  <button class="btn btn-primary" @onclick="SendNano">Send NANO</button>
+
+</p>
+      
+    }
+    else if (Balance.Pending.Raw > 0)
+    {
+      <p>
+        Process the pending transactions to be able to spend your NANO
+        <br />
+        <button class="btn btn-primary" @onclick="ProcessPending">Process Pending Transactions</button>
+      </p>
+    }
+    else
+    {
+      <p>Send some NANO to @Address to spend it.</p>
+    }
+  }
+
+}
+
+

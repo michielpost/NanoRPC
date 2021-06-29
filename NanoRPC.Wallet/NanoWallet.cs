@@ -64,7 +64,7 @@ namespace NanoRPC.Wallet
       return signedBlock;
     }
 
-    public async Task<List<string>> ProcessPendingTransactions()
+    public async Task<List<string>> ProcessPendingTransactionsAsync()
     {
       List<string> result = new List<string>();
 

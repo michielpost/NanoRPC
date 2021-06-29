@@ -12,13 +12,13 @@ namespace NanoRPC.Wallet
   public class NanoAccountManager
   {
     private readonly INanoRPC api;
-    private readonly string representative;
+    private readonly string defaultRepresentative;
     private readonly string seed;
     
-    public NanoAccountManager(INanoRPC api, string representative, string seed)
+    public NanoAccountManager(INanoRPC api, string defaultRepresentative, string seed)
     {
       this.api = api;
-      this.representative = representative;
+      this.defaultRepresentative = defaultRepresentative;
       this.seed = seed;
     }
 
@@ -94,7 +94,7 @@ namespace NanoRPC.Wallet
     {
       var accountInfo = GetAddress(index);
 
-      return new NanoWallet(api, representative, accountInfo);
+      return new NanoWallet(api, defaultRepresentative, accountInfo);
     }
 
 

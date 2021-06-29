@@ -47,7 +47,7 @@ namespace NanoRPC.Wallet.Tests
       //Original account with some funds
       var originalWallet = manager.GetNanoWallet(0);
 
-      await originalWallet.ProcessPendingTransactions();
+      await originalWallet.ProcessPendingTransactionsAsync();
 
       var originalBalance = await originalWallet.GetBalanceAsync();
       var originalNano = originalBalance.Balance;
@@ -86,7 +86,7 @@ namespace NanoRPC.Wallet.Tests
       Assert.AreEqual(firstSendAmount.Raw, pendingNewWallet.Blocks.First().Value.Raw);
 
       //Process pending transaction (First transaction, opens account)
-      var processResult = await newWallet.ProcessPendingTransactions();
+      var processResult = await newWallet.ProcessPendingTransactionsAsync();
       Assert.AreEqual(1, processResult.Count);
 
       //Assert: balance is up with new account
@@ -121,7 +121,7 @@ namespace NanoRPC.Wallet.Tests
       Assert.AreEqual(2, pendingNewWallet.Blocks.Count);
 
       //Process pending transactions
-      processResult = await newWallet.ProcessPendingTransactions();
+      processResult = await newWallet.ProcessPendingTransactionsAsync();
       Assert.AreEqual(2, processResult.Count);
 
       //Assert: balance is up with new account
@@ -134,7 +134,7 @@ namespace NanoRPC.Wallet.Tests
       Assert.IsNotNull(hash);
 
       //Process on original account
-      processResult = await originalWallet.ProcessPendingTransactions();
+      processResult = await originalWallet.ProcessPendingTransactionsAsync();
       Assert.AreEqual(1, processResult.Count);
 
       //Assert: original balance is back
