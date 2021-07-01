@@ -14,12 +14,14 @@ namespace NanoRPC.Wallet
     private readonly INanoRPC api;
     private readonly string defaultRepresentative;
     private readonly string seed;
-    
-    public NanoAccountManager(INanoRPC api, string defaultRepresentative, string seed)
+    private readonly string addressPrefix;
+
+    public NanoAccountManager(INanoRPC api, string defaultRepresentative, string seed, string addressPrefix = "nano")
     {
       this.api = api;
       this.defaultRepresentative = defaultRepresentative;
       this.seed = seed;
+      this.addressPrefix = addressPrefix;
     }
 
     
@@ -61,7 +63,7 @@ namespace NanoRPC.Wallet
       var checksum = NanoBase32Encoding.BytesToBase32(checksumBytes);
       var c_account = NanoBase32Encoding.BytesToBase32(keyBytes);
 
-      return "nano_" + c_account + checksum;
+      return addressPrefix + "_" + c_account + checksum;
     }
 
     public AccountInfo GetAddress(int index)

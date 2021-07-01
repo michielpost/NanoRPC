@@ -13,9 +13,12 @@ namespace NanoRPC.Wallet.SampleApp.Pages
     private INanoRPC api;
 
     private const string defaultRepresentative = "nano_34zuxqdsucurhjrmpc4aixzbgaa4wjzz6bn5ryn56emc9tmd3pnxjoxfzyb6";
+    //private const string defaultRepresentative = "ban_1nano4cqttsbdo5nwttfse8h3oaxickjwq4qobqphg7hifbcauaokz9q6ugj";
 
-
-    public string ApiBase { get; set; } = "https://nault.nanos.cc/proxy";
+    /// <summary>
+    /// For BANANO use https://kaliumapi.appditto.com/api
+    /// </summary>
+    public string ApiBase { get; set; } = "https://nault.nanos.cc/proxy"; 
     public string Seed { get; set; }
     public string WalletIndex { get; set; } = "0";
     public string Address { get; set; }
