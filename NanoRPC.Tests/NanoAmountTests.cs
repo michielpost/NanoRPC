@@ -37,6 +37,19 @@ namespace NanoRPC.Tests
       decimal dRai = 0.000001m;
       Assert.AreEqual(dRai, raiAsNano);
 
+      var reverseNano = new NanoAmount(dRai, AmountBase.Nano);
+      Assert.AreEqual(dRai, reverseNano.ConvertToDecimal(AmountBase.Nano));
+
+
+      decimal smallnano = 0.006m;
+      var smallReverse = new NanoAmount(smallnano, AmountBase.Nano);
+      Assert.AreEqual(6, smallReverse.ConvertToDecimal(AmountBase.krai));
+
+      decimal knano = 6m;
+      var kReverse = new NanoAmount(knano, AmountBase.krai);
+      Assert.AreEqual(0.006m, kReverse.ConvertToDecimal(AmountBase.Nano));
+
+
     }
   }
 }

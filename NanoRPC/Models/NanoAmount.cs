@@ -23,6 +23,12 @@ namespace NanoRPC
       Raw = amount * BigInteger.Pow(10, (int)amountBase);
     }
 
+    public NanoAmount(decimal amount, AmountBase amountBase)
+    {
+      decimal xrb = amount * Convert.ToDecimal(Math.Pow(10, (int)amountBase - (int)AmountBase.xrb));
+      Raw = Convert.ToInt64(xrb) * BigInteger.Pow(10, (int)AmountBase.xrb);
+    }
+
     /// <summary>
     /// Creates a <see cref="NanoAmount"/> of the specified amount and base unit
     /// </summary>
