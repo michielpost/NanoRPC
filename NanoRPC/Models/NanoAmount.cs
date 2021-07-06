@@ -44,6 +44,14 @@ namespace NanoRPC
       return this.Raw / BigInteger.Pow(10, (int)amountBase);
     }
 
+    public decimal ConvertToDecimal(AmountBase amountBase)
+    {
+      if (amountBase < AmountBase.xrb)
+        throw new Exception("Only AmountBase.xrb and greater is supported");
+
+      return (decimal)this.ConvertTo(AmountBase.xrb) / (decimal)BigInteger.Pow(10, (int)amountBase-(int)AmountBase.xrb);
+    }
+
     public override string ToString()
     {
       return this.ToString(AmountBase.raw);

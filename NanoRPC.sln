@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NanoRPC.Wallet", "NanoRPC.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NanoRPC.Wallet.Tests", "NanoRPC.Wallet.Tests\NanoRPC.Wallet.Tests.csproj", "{6CDAF71D-13DA-4B27-B825-F464354B0067}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoRPC.Wallet.SampleApp", "NanoRPC.Wallet.SampleApp\NanoRPC.Wallet.SampleApp.csproj", "{8EC96A58-609A-49A8-A1F2-5D45DA6479B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NanoRPC.Wallet.SampleApp", "NanoRPC.Wallet.SampleApp\NanoRPC.Wallet.SampleApp.csproj", "{8EC96A58-609A-49A8-A1F2-5D45DA6479B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
