@@ -81,5 +81,7 @@ namespace NanoRPC
     /// </summary>
     Mrai = Mxrb,
 
+    Banano = 29
+
   }
 }

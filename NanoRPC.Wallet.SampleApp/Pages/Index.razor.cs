@@ -108,5 +108,13 @@ namespace NanoRPC.Wallet.SampleApp.Pages
       await LoadWalletInfo();
 
     }
+
+    public async Task SendAllNano()
+    {
+      await wallet.SendNano(ToAddress, Balance.Balance);
+
+      await LoadWalletInfo();
+
+    }
   }
 }

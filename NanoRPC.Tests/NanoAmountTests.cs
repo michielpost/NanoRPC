@@ -24,6 +24,12 @@ namespace NanoRPC.Tests
       BigInteger nanoResult = BigInteger.Parse("1000000000000000000000000000000");
       Assert.AreEqual(nanoResult, nano.Raw);
 
+      BigInteger rawLot = BigInteger.Parse("1000000000000000000000000000000");
+      NanoAmount nanoFromRaw = new NanoAmount(rawLot, AmountBase.raw);
+      Assert.AreEqual(1m, nanoFromRaw.ConvertToDecimal(AmountBase.Nano));
+      Assert.AreEqual(10m, nanoFromRaw.ConvertToDecimal(AmountBase.Banano));
+
+
       var asString = nano.ToString(AmountBase.xrb);
       var asNano = nano.ConvertToDecimal(AmountBase.Nano);
 
