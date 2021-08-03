@@ -106,7 +106,7 @@ namespace NanoRPC.Wallet
 
     }
 
-    public async Task<string> SendNano(string toAccount, NanoAmount amount)
+    public async Task<string> SendNano(string toAccount, NanoAmount amount, bool waitForConfirm = false)
     {
       var currentAccountInfo = await GetAccountInfoAsync();
 
@@ -115,7 +115,7 @@ namespace NanoRPC.Wallet
       var signResult = CreateAndSignBlock(newAmount, toAccount, currentAccountInfo.Representative, currentAccountInfo.Frontier);
 
       //Send block
-      string hash = await SendSignedBlock(signResult.block, currentAccountInfo.Frontier, "send");
+      string hash = await SendSignedBlock(signResult.block, currentAccountInfo.Frontier, "send", waitForConfirm);
 
       return hash;
     }
