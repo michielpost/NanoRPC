@@ -120,7 +120,7 @@ namespace NanoRPC.Wallet
       return hash;
     }
 
-    private async Task<string> SendSignedBlock(Block block, string workHash, string subtype)
+    private async Task<string> SendSignedBlock(Block block, string workHash, string subtype, bool waitForConfirm = false)
     {
       //Add work to block
       var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = workHash });
@@ -133,7 +133,9 @@ namespace NanoRPC.Wallet
       if (string.IsNullOrEmpty(result.Hash))
         throw new Exception($"No hash returned. {result.Error}");
 
-      await WaitForConfirm(result.Hash);
+      if(waitForConfirm)
+        await WaitForConfirm(result.Hash);
+
       return result.Hash;
     }
 

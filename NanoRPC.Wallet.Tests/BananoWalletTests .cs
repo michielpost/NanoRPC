@@ -16,7 +16,7 @@ namespace NanoRPC.Wallet.Tests
 
 
     [ClassInitialize]
-    public async static Task Start(TestContext context)
+    public static void Start(TestContext context)
     {
       var api = NanoClient.GetClient("https://api-beta.banano.cc");
       var manager = new NanoAccountManager(api, representative, seed, "ban");
@@ -69,7 +69,7 @@ namespace NanoRPC.Wallet.Tests
 
 
     [TestMethod]
-    public async Task CreateFirstTransactionBlock()
+    public void CreateFirstTransactionBlock()
     {
       var signResult = wallet.CreateAndSignBlock(new NanoAmount(1, AmountBase.Nano), "46111F2C65ADAD3C99E0E4C9FB47C604DCF9446C89A036740EB22B46952AE595");
 

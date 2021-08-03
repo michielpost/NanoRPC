@@ -54,7 +54,7 @@ namespace NanoRPC.Wallet.Tests
 
 
     [TestMethod]
-    public async Task GetAddress()
+    public void GetAddress()
     {
       var result = manager.GetAddress(0);
       var wallet = manager.GetNanoWallet(0);
@@ -67,7 +67,7 @@ namespace NanoRPC.Wallet.Tests
     }
 
     [TestMethod]
-    public async Task GetAddressAtIndex()
+    public void GetAddressAtIndex()
     {
       var result = manager.GetAddress(3);
       var wallet = manager.GetNanoWallet(3);

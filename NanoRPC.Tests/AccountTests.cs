@@ -14,7 +14,6 @@ namespace NanoRPC.Tests
     private string _testAccount = "xrb_1cyca8x1u4bdi3m6aqjx1ouwayrnais7aucc33w9zxdtrwqaoxdt8yfdzm94";
     private string _testWallet = "";
     private string _testPublicKey = "2BCA41BA0D892B8066445E3D0577C47B144432546D4A08787FF57AC72E8AF57A";
-    private string _testPrivateKey = "C27DE5049FFEC683252B0A6A02A70D799EC9EBE8CAB4FA9CF93B09183606705B";
 
     public AccountTests()
     {

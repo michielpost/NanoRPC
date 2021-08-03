@@ -17,7 +17,7 @@ namespace NanoRPC.Wallet.Tests
 
 
     [ClassInitialize]
-    public async static Task Start(TestContext context)
+    public static void Start(TestContext context)
     {
       var api = NanoClient.GetClient(Configuration.BaseUrl);
       manager = new NanoAccountManager(api, representative, seed);

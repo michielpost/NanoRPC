@@ -10,8 +10,6 @@ namespace NanoRPC.Tests
   {
     private INanoRPC _client;
 
-    private string _account = "xrb_3poi3yur6n5ew65x5bmh7pre67reuj4mahwmcqe649abugnsmb97qrdfyk61";
-
     public FrontiersTests()
     {
       _client = NanoClient.GetClient(Configuration.BaseUrl);

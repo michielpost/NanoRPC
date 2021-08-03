@@ -2,6 +2,7 @@ using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace NanoRPC.Wallet.SampleApp.Pages
@@ -100,8 +101,8 @@ namespace NanoRPC.Wallet.SampleApp.Pages
 
     public async Task SendNano()
     {
-      var krai = int.Parse(ToAmount);
-      var amount = new NanoAmount(krai, AmountBase.krai);
+      var raw = BigInteger.Parse(ToAmount);
+      var amount = new NanoAmount(raw, AmountBase.raw);
 
       await wallet.SendNano(ToAddress, amount);
 
