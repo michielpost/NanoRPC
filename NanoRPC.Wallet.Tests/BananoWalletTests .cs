@@ -79,6 +79,16 @@ namespace NanoRPC.Wallet.Tests
 
     }
 
-    
+    [TestMethod]
+    public async Task SendFunds()
+    {
+      var pendingResult = await wallet.ProcessPendingTransactionsAsync();
+
+      var result = await wallet.GetBalanceAsync();
+
+      //var send = await wallet.SendNano("", result.Balance);
+
+    }
+
   }
 }
