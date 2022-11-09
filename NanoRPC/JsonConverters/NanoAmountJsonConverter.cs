@@ -19,7 +19,7 @@ namespace NanoRPC.JsonConverters
 
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     {
-      return new NanoAmount(BigInteger.Parse(reader.Value.ToString()), AmountBase.raw);
+      return new NanoAmount(BigInteger.Parse(reader.Value?.ToString()), AmountBase.raw);
     }
 
     public override bool CanConvert(Type objectType)
