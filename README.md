@@ -11,7 +11,7 @@ This library includes a programmable wallet to easily receive and send Nano. It 
 
 Donation address: nano_14ezmbmoj5zqzoj7g99bec1rfr7woe1d7bsa87wmsbfpt4u4mnur8183oqtm
 
-**[Live Blazor WebAssembly Wallet Demo](https://2g01csvv6d7duae7c8hemr3l4i79pctudff330g95g61ojld9j3s3k8.siasky.net/)**
+**[Live Blazor WebAssembly Wallet Demo](https://michielpost.github.io/NanoRPC/)**
 
 ## How To install?
 Download the source from GitHub or get the compiled assembly from NuGet [NanoRPC on NuGet](https://nuget.org/packages/NanoRPC).
