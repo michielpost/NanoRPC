@@ -6,7 +6,7 @@
 
 Nano RPC Client and Nano Wallet library in C#
 
-Easily communicatie with a Nano Node using C#
+Easily communicate with a Nano Node using C#
 This library includes a programmable wallet to easily receive and send Nano. It can be used in ASP.Net, Desktop apps and also in the browser using Blazor WebAssembly.
 
 Donation address: nano_14ezmbmoj5zqzoj7g99bec1rfr7woe1d7bsa87wmsbfpt4u4mnur8183oqtm
