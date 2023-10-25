@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Isopoh.Cryptography.Blake2b" Version="1.1.12" />
+    <PackageReference Include="Isopoh.Cryptography.Blake2b" Version="2.0.0" />
     <PackageReference Include="Chaos.NaCl.Standard" Version="1.0.0" />
     <PackageReference Include="RangeForeach" Version="0.0.1" />
   </ItemGroup>
