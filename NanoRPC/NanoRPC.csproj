@@ -5,16 +5,17 @@
     <Nullable>enable</Nullable>
     <WarningsAsErrors>CS8600;CS8601;CS8602;CS8603;CS8625;CS8613;CS8610</WarningsAsErrors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NanoRPCExt</PackageId>
     <Version>1.9.0</Version>
-    <Authors>Michiel Post</Authors>
+    <Authors>d-grasshopper</Authors>
     <Company />
-    <Description>Library to communicatie with NANO Currency node using RPC</Description>
-    <Copyright>Michiel Post</Copyright>
-    <PackageProjectUrl>https://github.com/michielpost/NanoRPC</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/michielpost/NanoRPC</RepositoryUrl>
+    <Description>Library to communicate with NANO Currency node using RPC</Description>
+    <Copyright>d-grasshopper</Copyright>
+    <PackageProjectUrl>https://github.com/d-grasshopper/NanoRPCExt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/d-grasshopper/NanoRPCExt</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>nanocurrency rpc cryptocurrency</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/michielpost/NanoRPC/master/logo.jpg</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/d-grasshopper/NanoRPC/master/logo.jpg</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>

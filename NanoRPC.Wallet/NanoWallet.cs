@@ -106,7 +106,7 @@ namespace NanoRPC.Wallet
 
     }
 
-    public async Task<string> SendNano(string toAccount, NanoAmount amount, bool waitForConfirm = false)
+    public async Task<string> SendNano(string toAccount, NanoAmount amount, string? work = null, bool waitForConfirm = false)
     {
       var currentAccountInfo = await GetAccountInfoAsync();
 
@@ -115,19 +115,34 @@ namespace NanoRPC.Wallet
       var signResult = CreateAndSignBlock(newAmount, toAccount, currentAccountInfo.Representative, currentAccountInfo.Frontier);
 
       //Send block
-      string hash = await SendSignedBlock(signResult.block, currentAccountInfo.Frontier, "send", waitForConfirm);
+      string hash;
+      if (!string.IsNullOrEmpty(work))
+      {
+        hash = await SendSignedBlock(signResult.block, work, "send", waitForConfirm, true);
+      }
+      else
+      {
+        hash = await SendSignedBlock(signResult.block, currentAccountInfo.Frontier, "send", waitForConfirm);
+      }
 
       return hash;
     }
 
-    private async Task<string> SendSignedBlock(Block block, string workHash, string subtype, bool waitForConfirm = false)
+    private async Task<string> SendSignedBlock(Block block, string workHash, string subtype, bool waitForConfirm = false, bool isWorkGenerated = false)
     {
-      //Add work to block
-      var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = workHash });
-      if (string.IsNullOrEmpty(workResult.Work))
-        throw new Exception($"No work returned. {workResult.Error}");
+      if (!isWorkGenerated)
+      {
+        //Add work to block
+        var workResult = await api.WorkGenerate(new WorkGenerateRequest { Hash = workHash });
+        if (string.IsNullOrEmpty(workResult.Work))
+          throw new Exception($"No work returned. {workResult.Error}");
 
-      block.Work = workResult.Work;
+        block.Work = workResult.Work;
+      }
+      else
+      {
+        block.Work = workHash;
+      }
 
       var result = await api.Process(new ProcessRequest() { SubType = subtype, Block = block });
       if (string.IsNullOrEmpty(result.Hash))
@@ -168,6 +183,6 @@ namespace NanoRPC.Wallet
       return false;
     }
 
-   
+
   }
 }
