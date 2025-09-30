@@ -35,7 +35,7 @@ namespace NanoRPC.Tests
       });
 
       Assert.IsNotNull(result);
-      Assert.AreEqual("xrb_38or3c1qpkt9qkpmgh9asdzg5ogmmtfxqf1hqn79zjzo9a9j5e99txja35su", result.Account);
+      Assert.AreEqual("nano_38or3c1qpkt9qkpmgh9asdzg5ogmmtfxqf1hqn79zjzo9a9j5e99txja35su", result.Account);
     }
 
     [TestMethod]

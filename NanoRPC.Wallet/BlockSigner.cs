@@ -11,7 +11,7 @@ namespace NanoRPC.Wallet
 {
   public static class BlockSigner
   {
-    private static Regex accountpattern = new Regex("^(xrb_|nano_|ban_|lumo_|nos_|eur_|usd_)(1|3)[13456789abcdefghijkmnopqrstuwxyz]{59}$"); // accounts
+    private static Regex accountpattern = new Regex("^(nano_|nano_|ban_|lumo_|nos_|eur_|usd_)(1|3)[13456789abcdefghijkmnopqrstuwxyz]{59}$"); // accounts
     private static Regex hashpattern = new Regex("[0-9a-fA-F]{64}"); // hashes and pubkeys
 
     public static (Block block, string hash) SignBlock(BlockCreateRequest create, string privateKey)

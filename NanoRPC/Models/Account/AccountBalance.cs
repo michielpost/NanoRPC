@@ -17,5 +17,6 @@ namespace NanoRPC
   {
     public NanoAmount Balance { get; set; }
     public NanoAmount Pending { get; set; }
+    public NanoAmount Receivable { get; set; }
   }
 }

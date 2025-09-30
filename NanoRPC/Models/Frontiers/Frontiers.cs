@@ -11,9 +11,9 @@ namespace NanoRPC
     public string Action { get; } = "frontiers";
 
     /// <summary>
-    /// Uses xrb_1111111111111111111111111111111111111111111111111111hifc8npp as default value
+    /// Uses nano_1111111111111111111111111111111111111111111111111111hifc8npp as default value
     /// </summary>
-    public string Account { get; set; } = "xrb_1111111111111111111111111111111111111111111111111111hifc8npp"; //Default value
+    public string Account { get; set; } = "nano_1111111111111111111111111111111111111111111111111111hifc8npp"; //Default value
 
     /// <summary>
     /// Use -1 for all

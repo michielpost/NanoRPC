@@ -21,8 +21,8 @@ namespace NanoRPC.Tests
       var result = await _client.Send(new SendRequest()
       {
         Wallet = "D5239826AAD5F51C0905C2D5D10A95556F224EF3134507A1F815E0BFD5248754",
-        Source = "xrb_38or3c1qpkt9qkpmgh9asdzg5ogmmtfxqf1hqn79zjzo9a9j5e99txja35su",
-        Destination = "xrb_3ubez7myynk4eigcyyoqndxtek6fcdrmc5gir79zr5m6c6m6dw8ciyb5zxnb",
+        Source = "nano_38or3c1qpkt9qkpmgh9asdzg5ogmmtfxqf1hqn79zjzo9a9j5e99txja35su",
+        Destination = "nano_3ubez7myynk4eigcyyoqndxtek6fcdrmc5gir79zr5m6c6m6dw8ciyb5zxnb",
         Amount = new NanoAmount(1, AmountBase.raw),
         Id = "1"
       });

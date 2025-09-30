@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Threading.Tasks;
 
 namespace NanoRPC.Tests
@@ -9,9 +8,9 @@ namespace NanoRPC.Tests
   public class AccountTests
   {
     private INanoRPC _client;
-    private string _existingAccount = "xrb_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k";
+    private string _existingAccount = "nano_1po1s1x99geupxutnjezdwptbejutrzoot78b6xdfecqmremzj4qnweg7yff";
 
-    private string _testAccount = "xrb_1cyca8x1u4bdi3m6aqjx1ouwayrnais7aucc33w9zxdtrwqaoxdt8yfdzm94";
+    private string _testAccount = "nano_1cyca8x1u4bdi3m6aqjx1ouwayrnais7aucc33w9zxdtrwqaoxdt8yfdzm94";
     private string _testWallet = "";
     private string _testPublicKey = "2BCA41BA0D892B8066445E3D0577C47B144432546D4A08787FF57AC72E8AF57A";
 
@@ -132,7 +131,7 @@ namespace NanoRPC.Tests
     [TestMethod]
     public async Task ValidateAccountNumberInvalid()
     {
-      var result = await _client.ValidateAccountNumber(new ValidateAccountNumberRequest() { Account = "xrb_invalid" });
+      var result = await _client.ValidateAccountNumber(new ValidateAccountNumberRequest() { Account = "nano_invalid" });
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.Valid);

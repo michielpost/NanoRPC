@@ -18,7 +18,7 @@ namespace NanoRPC.Tests
     [TestMethod]
     public async Task Frontiers()
     {
-      var result = await _client.Frontiers(new FrontiersRequest() { Account = "xrb_1114g5pesiopr4r5jsdhzgiuc19ed9o881b3d5714w4pd49g3iohdp59p97d", Count = 10 });
+      var result = await _client.Frontiers(new FrontiersRequest() { Account = "nano_1114g5pesiopr4r5jsdhzgiuc19ed9o881b3d5714w4pd49g3iohdp59p97d", Count = 10 });
 
       Assert.IsNotNull(result);
       Assert.IsNotNull(result.Frontiers);

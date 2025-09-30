@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace NanoRPC.Tests
 {
   public static class Configuration
   {
-    public static string BaseUrl = "http://localhost:17076";
+    public static string BaseUrl = "https://nanoslo.0x.no/proxy";
   }
 }
