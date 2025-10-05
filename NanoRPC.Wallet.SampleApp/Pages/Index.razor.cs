@@ -21,6 +21,7 @@ namespace NanoRPC.Wallet.SampleApp.Pages
     /// For BANANO use https://kaliumapi.appditto.com/api
     /// </summary>
     //public string ApiBase { get; set; } = "https://nault.nanos.cc/proxy"; 
+    //public string ApiBase { get; set; } = "https://uk1.public.xnopay.com/proxy";
     public string ApiBase { get; set; } = "https://nanoslo.0x.no/proxy";
     public string Seed { get; set; }
     public string WalletIndex { get; set; } = "0";
